@@ -10,11 +10,20 @@ Classic L1-penalty SAEs trade reconstruction quality against sparsity via a Lagr
 
 ## What's here
 
-- `src/sae/model.py` — `TopKSAE` module (encoder, top-k activation, unit-norm decoder, AuxK dead-latent revival).
-- `src/sae/activations.py` — streaming activation collector that hooks a chosen layer's residual stream from a HF transformer and yields `(B, d_model)` batches without materializing the full corpus in RAM.
-- `src/sae/train.py` — training loop with dead-latent tracking, reconstruction-FVU metric, and checkpoint saving.
-- `src/sae/dashboard.py` — per-feature max-activating-example extraction for inspection.
-- `scripts/train_sae.py` — CLI entry point.
+Library (`src/sae/`):
+
+- `model.py` — `TopKSAE` module: encoder, top-k activation, unit-norm decoder, AuxK dead-latent revival.
+- `activations.py` — streaming activation collector that hooks a chosen layer's residual stream from a HF transformer and yields `(B, d_model)` batches without materializing the full corpus in RAM.
+- `train.py` — training loop with dead-latent tracking, reconstruction-FVU metric, and checkpoint saving.
+- `dashboard.py` — per-feature max-activating-example extraction over streamed Pile documents, producing a JSON that can be fed to a viewer or notebook.
+- `autointerp.py` — two-stage Claude-based auto-interpretability: an explainer generates a one-sentence description of each feature from its top-activating snippets, and a scorer grades the description by forced-choice discrimination against distractor snippets (balanced accuracy).
+
+CLI entry points (`scripts/`):
+
+- `train_sae.py` — train a TopK SAE on a chosen layer.
+- `build_dashboard.py` — extract top-N max-activating examples per latent from a trained checkpoint.
+- `sample_dashboard.py` — slice the full dashboard down to a small committable sample.
+- `run_autointerp.py` — run the Claude explainer + scorer over a dashboard JSON.
 
 ## Hardware target
 
@@ -22,15 +31,36 @@ Designed for a single RTX 5080 (16 GB). Pythia-160M in fp16 + a 16k-feature SAE 
 
 ## Quickstart
 
+Reproduce the smoke-test run below end-to-end:
+
 ```bash
 uv sync
+
+# 1. Train a TopK SAE on layer 6 of Pythia-160M (~2 min on an RTX 5080).
 uv run python scripts/train_sae.py \
     --model EleutherAI/pythia-160m \
     --layer 6 \
     --d-sae 16384 \
     --k 32 \
-    --tokens 50_000_000
+    --tokens 5_000_000 \
+    --batch-size 4096
+
+# 2. Build the per-feature max-activating-example dashboard.
+uv run python scripts/build_dashboard.py \
+    --checkpoint checkpoints/sae_L6_d16384_k32.pt \
+    --layer 6 \
+    --output dashboards/features.json \
+    --num-docs 500
+
+# 3. (optional) Auto-interp the top features with Claude.
+export ANTHROPIC_API_KEY=sk-ant-...
+uv run python scripts/run_autointerp.py \
+    --dashboard dashboards/features.json \
+    --output dashboards/autointerp.json \
+    --num-features 32
 ```
+
+For a longer, more publication-quality run, bump `--tokens` to `50_000_000` or more — at that scale the dead-latent fraction drops substantially and features sharpen.
 
 ## Results (smoke test)
 
