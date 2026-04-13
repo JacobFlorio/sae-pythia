@@ -6,7 +6,7 @@ All snippets below are reproducible from `dashboards/features_sample.json` (naiv
 
 ## 1. Pathology: the BOS super-cluster
 
-Ranking by raw peak activation, roughly **30 of the top 50 latents are duplicates** firing at `token_pos=0` on whatever content token happens to start a document. Their top-8 examples are *the same eight documents in the same order* with near-identical activations:
+Ranking by raw peak activation, **17 of the top 50 latents** fire *exclusively* at `token_pos=0` (every single one of their top-8 examples is a document-start token), and they're duplicates of each other: their top-8 example sets are *the same eight documents in the same order* with near-identical activations.
 
 ```
 feature 14690, max=71.7  Guard / Prom / Anthony / def / Ste / Sen / Work / Work
@@ -31,7 +31,11 @@ feature 10856, max=68.2
   pos=1   '\n'   /*  * Copyright 2010-2013 Amazon.com, Inc. …
 ```
 
-Features 10856, 2997, 1430, 5749, 5942, 8176, 10849, 14989 all share this fingerprint. Same story as the BOS cluster: duplicated latents chasing the same structural position.
+Features 10856, 2997, 1430, 5749, 5942, 8176, 10849, 14989 all share this fingerprint. Same story as the BOS cluster: duplicated latents chasing the same structural position. Together with the BOS cluster and a few other smaller clusters, **only 5 unique doc-fingerprints survive Jaccard-0.5 deduplication of the top 50 peak-ranked features** — meaning roughly 90% of the top list is positional duplication.
+
+And the crispest headline number: **of the top 50 peak-ranked features, exactly 1 has all 8 top examples in mid-document positions (pos ≥ 5)**. That feature is 5735, the auto-insurance boilerplate one described below.
+
+(Metrics are reproducible from `scripts/compare_layers.py` on the full dashboard JSON.)
 
 ## 3. Real features (dedupe-filtered)
 
