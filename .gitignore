@@ -19,6 +19,8 @@ dashboards/*
 !dashboards/features_L3_sample_dedupe.json
 !dashboards/features_L9_sample_dedupe.json
 !dashboards/layer_comparison.json
+!dashboards/geometry.json
+!dashboards/autointerp_L*.json
 
 .env
 .vscode/

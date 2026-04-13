@@ -143,7 +143,13 @@ def run_autointerp(
         dashboard: dict[str, list[dict]] = json.load(f)
 
     client = anthropic.Anthropic()
-    latents = list(dashboard.keys())
+    # Sort by peak activation so --num-features picks the most active features,
+    # not whatever order the JSON keys happen to be in.
+    latents = sorted(
+        dashboard.keys(),
+        key=lambda lat: max((ex["activation"] for ex in dashboard[lat]), default=0.0),
+        reverse=True,
+    )
     if num_features is not None:
         latents = latents[:num_features]
 

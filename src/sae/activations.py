@@ -41,7 +41,7 @@ class ActivationStream:
             self.tokenizer.pad_token = self.tokenizer.eos_token
 
         self.model = AutoModelForCausalLM.from_pretrained(
-            model_name, torch_dtype=dtype
+            model_name, dtype=dtype
         ).to(device)
         self.model.eval()
 
