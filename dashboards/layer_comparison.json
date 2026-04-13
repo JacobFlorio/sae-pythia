@@ -1,0 +1,41 @@
+{
+  "layer3": {
+    "dashboard": "dashboards/features_L3.json",
+    "total_features_in_dashboard": 8190,
+    "top_k": 50,
+    "bos_cluster_size": 24,
+    "strict_mid_document_count": 0,
+    "any_mid_document_count": 26,
+    "unique_clusters_after_dedupe": 3,
+    "peak_activation_mean": 68.22,
+    "peak_activation_median": 68.16,
+    "peak_activation_min": 62.92,
+    "peak_activation_max": 76.01
+  },
+  "layer6": {
+    "dashboard": "dashboards/features_L6.json",
+    "total_features_in_dashboard": 6862,
+    "top_k": 50,
+    "bos_cluster_size": 17,
+    "strict_mid_document_count": 1,
+    "any_mid_document_count": 33,
+    "unique_clusters_after_dedupe": 5,
+    "peak_activation_mean": 62.92,
+    "peak_activation_median": 65.51,
+    "peak_activation_min": 20.2,
+    "peak_activation_max": 71.69
+  },
+  "layer9": {
+    "dashboard": "dashboards/features_L9.json",
+    "total_features_in_dashboard": 8679,
+    "top_k": 50,
+    "bos_cluster_size": 25,
+    "strict_mid_document_count": 0,
+    "any_mid_document_count": 25,
+    "unique_clusters_after_dedupe": 3,
+    "peak_activation_mean": 48.36,
+    "peak_activation_median": 48.3,
+    "peak_activation_min": 44.09,
+    "peak_activation_max": 51.96
+  }
+}

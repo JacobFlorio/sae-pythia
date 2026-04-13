@@ -16,6 +16,9 @@ wandb/
 dashboards/*
 !dashboards/features_sample.json
 !dashboards/features_sample_dedupe.json
+!dashboards/features_L3_sample_dedupe.json
+!dashboards/features_L9_sample_dedupe.json
+!dashboards/layer_comparison.json
 
 .env
 .vscode/

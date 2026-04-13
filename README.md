@@ -94,7 +94,7 @@ Work in progress. Roadmap:
 - [x] Training loop
 - [x] Feature dashboard with max-activating examples
 - [x] Automated interpretability scoring (feature → natural-language description)
-- [ ] Writeup comparing feature quality across layers 3/6/9 (analysis script in place, layers 3 and 9 training runs pending)
+- [x] Writeup comparing feature quality across layers 3/6/9
 
 ## License
 
