@@ -78,7 +78,12 @@ First end-to-end run, intended to validate the pipeline rather than produce publ
 | Dead latents   | 6,734 / 16,384 (~41%)      |
 | Wallclock      | ~2 min on RTX 5080         |
 
-The reconstruction quality is already solid at 5M tokens. The dead-latent fraction is high — this is the expected failure mode at short training runs, and is the main thing longer runs (and the AuxK coefficient) should improve. A 50-feature slice of the resulting dashboard is committed at [`dashboards/features_sample.json`](dashboards/features_sample.json); the full 16k-feature dashboard is gitignored.
+The reconstruction quality is already solid at 5M tokens. The dead-latent fraction is high — this is the expected failure mode at short training runs, and is the main thing longer runs (and the AuxK coefficient) should improve. Two 50-feature slices of the resulting dashboard are committed:
+
+- [`dashboards/features_sample.json`](dashboards/features_sample.json) — naive peak-activation ranking (dominated by duplicated "BOS absorption" latents; kept as evidence of the pathology).
+- [`dashboards/features_sample_dedupe.json`](dashboards/features_sample_dedupe.json) — doc-fingerprint deduplicated, which actually surfaces semantic features.
+
+A writeup of what the SAE is and isn't capturing — including concrete features it found (auto-insurance policy boilerplate, patent "Field of the Invention" headers, Apache-license warranty clauses, bibliographic citation markup) and the two pathologies (BOS super-cluster, paragraph-break duplicates) — lives in [`FINDINGS.md`](FINDINGS.md).
 
 ## Status
 

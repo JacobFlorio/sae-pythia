@@ -15,6 +15,7 @@ wandb/
 
 dashboards/*
 !dashboards/features_sample.json
+!dashboards/features_sample_dedupe.json
 
 .env
 .vscode/
