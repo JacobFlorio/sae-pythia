@@ -1,0 +1,212 @@
+[
+  {
+    "latent": 14690,
+    "description": "The neuron detects capitalized words or tokens at the beginning of titles, names, headings, or sentences, particularly proper nouns and prominent content words.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 2456,
+    "description": "This neuron detects capitalized words or tokens that begin with capital letters, often representing proper nouns, titles, function/code keywords, or the start of sentences.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 6572,
+    "description": "This neuron appears to detect word-initial tokens that are either the beginning of a proper noun, title, or the start of a standalone word at the beginning of a sentence or phrase.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 4435,
+    "description": "This neuron detects the beginning of proper nouns, titles, and capitalized words that start sentences or significant phrases.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 10856,
+    "description": "This neuron detects line breaks or newline characters that appear at the beginning of code comments, copyright notices, HTML tags, or after titles/headings in formatted text.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 6278,
+    "description": "This neuron detects capitalized words or tokens that begin with common prefixes or word stems, particularly those starting with letters like \"Ste\", \"Sen\", \"Prom\", \"Guard\", \"Work\", \"def\", or \"Anthony\".",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 2997,
+    "description": "The neuron detects newline characters that immediately follow opening comment delimiters, HTML tags, or punctuation marks in code and formatted text.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 13433,
+    "description": "This neuron detects capitalized words at the beginning of sentences, titles, or proper nouns, particularly those starting with common prefixes or short words.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 10813,
+    "description": "This neuron detects the beginning of proper nouns, titles, or standalone words that start phrases, particularly at the start of sentences or headlines.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 1430,
+    "description": "This neuron detects line breaks or newline characters that occur after comment markers, opening tags, or at the start of structured text blocks (particularly in code or markup documents).",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 5942,
+    "description": "The neuron detects newline characters that appear immediately after opening comment markers (/* or /**) or opening HTML tags, indicating the start of a new line in formatted code or markup.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 15495,
+    "description": "The neuron detects newline characters that immediately follow an opening comment delimiter (/* or /**) or opening HTML tag, indicating the start of a multi-line code block or markup structure.",
+    "balanced_accuracy": 0.5,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 10849,
+    "description": "The neuron detects newline characters that immediately follow opening comment delimiters, HTML tags, or language identifiers in code or markup contexts.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 3948,
+    "description": "The neuron appears to detect capitalized words or proper nouns at the beginning of sentences, titles, or labeled sections, particularly when they start a new topic or heading.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 13455,
+    "description": "The neuron appears to detect capitalized tokens at the beginning of titles, headlines, proper names, or code function definitions.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 5434,
+    "description": "This neuron detects the start of a new line or block of code/text, particularly after an opening tag, comment delimiter, or organizational marker.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 5749,
+    "description": "This neuron detects newline characters that immediately follow comment or code block delimiters (such as /*, /**, or special marker characters like ##).",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 1256,
+    "description": "The neuron appears to detect word fragments or tokens that begin capitalized words, particularly at the start of titles, names, or sentences.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 13966,
+    "description": "The neuron appears to detect capitalized words or names at the beginning of sentences, titles, or text segments, particularly those that start a new section or heading.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 2840,
+    "description": "This neuron detects newline characters that appear immediately after opening comment delimiters (/* or /**), HTML tags, or at the start of structural code/text blocks.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 7962,
+    "description": "This neuron detects word fragments or tokens that are the beginning of proper nouns, titles, or technical terms, particularly when they appear at the start of a phrase or as part of a name/heading.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 3059,
+    "description": "This neuron detects newline characters that appear after opening delimiters (such as comment markers, HTML tags, or other structural code elements) at the beginning of code blocks or documentation sections.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 14179,
+    "description": "This neuron detects newline characters that occur immediately after comment markers (/* or /**) or opening HTML tags, marking the start of a new line in code or structured text.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 15061,
+    "description": "The neuron appears to detect capitalized words at the beginning of titles, headings, proper nouns, or sentences, particularly focusing on the first word or initial token of a named entity or title.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 11014,
+    "description": "This neuron detects the beginning of proper nouns, titles, or capitalized tokens, particularly those starting with common prefixes like \"Guard,\" \"Anthony,\" \"Prom,\" \"def,\" \"Ste,\" \"Sen,\" and \"Work.\"",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 15397,
+    "description": "This neuron detects newline characters that appear after opening comment delimiters (/* or /**) or opening HTML tags, marking the transition to a new line in structured code or markup.",
+    "balanced_accuracy": NaN,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 8968,
+    "description": "The neuron appears to detect capitalized words or tokens that begin with capital letters, particularly at the start of sentences, titles, proper nouns, or function/variable names in code.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 15491,
+    "description": "This neuron detects newline characters that immediately follow opening comment markers (/* or /**) or opening HTML tags, indicating the start of a new line in formatted code or markup.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 4380,
+    "description": "The neuron detects capitalized words or tokens at the beginning of titles, names, or standalone phrases, particularly those starting sentences or serving as headings.",
+    "balanced_accuracy": NaN,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 9122,
+    "description": "This neuron detects newline characters that appear immediately after comment delimiters, HTML tags, or at the beginning of new structural sections in code or text.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  }
+]

@@ -1,0 +1,212 @@
+[
+  {
+    "latent": 12875,
+    "description": "The neuron detects the first letter or initial syllable of proper nouns, names, or titles at the beginning of phrases or sentences.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 747,
+    "description": "This neuron detects line breaks or newlines that occur immediately after header text, code comment delimiters, or title/heading text, typically marking the transition from a title or opening marker to the subsequent content.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 16309,
+    "description": "This neuron detects the start of a new line or paragraph break, particularly after section headers, titles, or comment delimiters.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 13954,
+    "description": "The neuron detects the first few characters of proper nouns, names, and titles, particularly at the beginning of words or phrases.",
+    "balanced_accuracy": 0.5,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 8369,
+    "description": "This neuron detects line breaks or newlines that occur immediately after opening delimiters, headers, or titles, particularly in structured text like code comments, documentation, or article headings.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 4706,
+    "description": "This neuron detects newline characters that immediately follow opening comment delimiters or section headers in code and text documents.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 609,
+    "description": "This neuron detects line breaks or newlines that occur immediately after comment markers, copyright notices, or section headers in code and formatted text.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 11238,
+    "description": "The neuron detects line breaks or newlines that occur immediately after opening markers, titles, or comment delimiters, typically at the start of a new section or block of text.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 926,
+    "description": "This neuron detects line breaks or newlines that occur immediately after opening delimiters (like comment markers, section headers, or incomplete text) and before the start of substantial content.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 3428,
+    "description": "This neuron detects newline characters that appear immediately after opening comment delimiters or at the end of titles/headers, typically preceding copyright notices, documentation, or new sections of text.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 3935,
+    "description": "This neuron detects line breaks or newlines that occur immediately after opening markers (such as article titles, comment blocks, or code documentation headers).",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 8021,
+    "description": "This neuron detects line breaks or newlines that immediately follow a block of text, particularly after headers, titles, comment markers, or end-of-line punctuation.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 202,
+    "description": "This neuron detects line breaks or newlines that occur immediately after opening delimiters (such as comment markers `/*`, `/**`, or section separators) or at the end of titles/headers.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 12103,
+    "description": "This neuron detects newline characters that immediately follow a line ending with special characters (such as asterisks, hash symbols, or punctuation) in code comments or text formatting.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 7841,
+    "description": "This neuron detects newline characters that appear immediately after comment delimiters, section headers, or title text, typically marking the start of a new line in formatted text or code.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 14464,
+    "description": "Capitalized tokens at the beginning of proper nouns, titles, or important terms that start sentences or appear in headings.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 7338,
+    "description": "The neuron detects the beginning of proper nouns, titles, or specialized terms, often firing on the first few characters or initial capitalized token of names, places, technical terms, or formal headings.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 15618,
+    "description": "The neuron detects line breaks or newlines that occur immediately after opening delimiters, headers, or titles, particularly in code comments and structured text documents.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 3926,
+    "description": "Tokens that begin proper nouns (names, places, organizations) or are the first letter/syllable of capitalized words at the start of titles, headings, or significant noun phrases.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 11795,
+    "description": "This neuron detects the first few letters of proper nouns, technical terms, and content category labels, particularly at the beginning of titles, headings, or when introducing new named entities.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 9477,
+    "description": "The neuron appears to detect the first token of proper nouns, names, and titles at the beginning of sentences or sections.",
+    "balanced_accuracy": 0.625,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 8435,
+    "description": "This neuron detects capitalized proper nouns or the first capitalized letter of names, titles, or technical terms at the beginning of phrases or sentences.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 3846,
+    "description": "This neuron detects the first letter or initial characters of proper nouns, particularly names of people, places, and technical terms.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 15832,
+    "description": "The neuron appears to detect the first token of proper nouns, particularly names of people, places, organizations, and titles.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 15626,
+    "description": "Tokens that are the first letter or initial portion of proper nouns, names, specialized terms, or content warnings, appearing at the beginning of titles, headings, or sentences.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 16093,
+    "description": "This neuron detects line breaks or newlines that occur immediately after opening delimiters (such as `/*`, `<<`, or other starting markers) or at the beginning of new sections in structured text.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 12411,
+    "description": "This neuron detects line breaks or newlines that occur immediately after opening comment delimiters, copyright notices, or the end of titles/headers in code and text documents.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 9737,
+    "description": "This neuron detects capitalized single letters or short prefixes at the beginning of proper nouns, titles, or significant terms, particularly when they mark the start of a named entity or important phrase.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 10948,
+    "description": "The neuron detects proper nouns, particularly names of people, places, and technical terms, typically at the beginning of titles, headings, or sentences where they start with capital letters.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 4801,
+    "description": "Tokens that are the first few characters of proper nouns, titles, or specialized terms, typically at the beginning of a word or name.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  }
+]

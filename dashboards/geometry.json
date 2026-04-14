@@ -1,0 +1,38 @@
+{
+  "layer3": {
+    "checkpoint": "checkpoints/sae_L3_d16384_k32.pt",
+    "d_sae": 16384,
+    "d_model": 768,
+    "live_latents": 9771,
+    "dead_latents": 6613,
+    "dead_fraction": 0.4036,
+    "mean_cosine_similarity": 0.004219,
+    "frac_pairs_cos_gt_0_1": 0.0108,
+    "uniformity_loss": -3.9716,
+    "effective_rank": 672.0
+  },
+  "layer6": {
+    "checkpoint": "checkpoints/sae_L6_d16384_k32.pt",
+    "d_sae": 16384,
+    "d_model": 768,
+    "live_latents": 10035,
+    "dead_latents": 6349,
+    "dead_fraction": 0.3875,
+    "mean_cosine_similarity": 0.001357,
+    "frac_pairs_cos_gt_0_1": 0.0072,
+    "uniformity_loss": -3.9833,
+    "effective_rank": 689.8
+  },
+  "layer9": {
+    "checkpoint": "checkpoints/sae_L9_d16384_k32.pt",
+    "d_sae": 16384,
+    "d_model": 768,
+    "live_latents": 13331,
+    "dead_latents": 3053,
+    "dead_fraction": 0.1863,
+    "mean_cosine_similarity": 0.002725,
+    "frac_pairs_cos_gt_0_1": 0.0088,
+    "uniformity_loss": -3.9769,
+    "effective_rank": 683.9
+  }
+}

@@ -1,0 +1,212 @@
+[
+  {
+    "latent": 211,
+    "description": "This neuron detects capitalized tokens that begin proper nouns, technical terms, or significant content words at the start of titles, names, or topic headings.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 11772,
+    "description": "Function or class names at the beginning of code, proper nouns at the start of titles/headings, and capitalized words beginning new topics or sections.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 11765,
+    "description": "This neuron detects capitalized single letters or short prefixes at the beginning of proper nouns, technical terms, or the start of new sections/entries.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 1871,
+    "description": "This neuron detects the beginning of proper nouns, names, and title words, particularly when they are capitalized and start a new entity or concept.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 1877,
+    "description": "The neuron detects tokens at the start of proper nouns, technical terms, or significant keywords that begin new topics or entries.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 14181,
+    "description": "This neuron detects the beginning of proper nouns, technical terms, or significant words, often marked by capitalized prefixes or abbreviations at the start of titles, names, or specialized vocabulary.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 13504,
+    "description": "Tokens at the beginning of proper nouns, technical terms, and standalone words that start new topics or titles.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 11218,
+    "description": "This neuron detects the first token of proper nouns, technical terms, or titles, particularly when they begin a phrase or are part of a name.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 15099,
+    "description": "This neuron detects line breaks or newlines that follow opening delimiters (periods, comment starts, HTML tags, or function declarations) in source code and markup files.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 8779,
+    "description": "This neuron detects word-initial capitalized tokens, particularly those beginning with \"B\" or representing the start of proper nouns, technical terms, or titles.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 15719,
+    "description": "The neuron detects capitalized abbreviations or shortened forms of words, particularly at the beginning of proper nouns, function identifiers, or technical terms.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 1113,
+    "description": "The neuron detects line breaks or newline characters that appear after punctuation marks (periods, opening tags, or comment delimiters) in source code and markup files.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 15003,
+    "description": "The neuron detects the beginning of a new line or block, particularly after an opening symbol (like `<<`, `{`, or function declaration) that starts a multi-line comment, code block, or structured content.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 7151,
+    "description": "Newline character following code comment markers, class/package declarations, or HTML/XML opening tags.",
+    "balanced_accuracy": 0.375,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 994,
+    "description": "This neuron detects word-initial tokens that begin with common prefixes or abbreviations, particularly single capital letters (B, S, G, A, P, def) at the start of titles, names, or technical terms.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 15795,
+    "description": "This neuron detects tokens that are the first part of proper nouns, technical terms, or specialized vocabulary, particularly when they begin with capital letters at the start of titles, names, or technical definitions.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 14009,
+    "description": "This neuron detects line breaks or newlines that occur immediately after opening delimiters (such as `<<`, `/*`, `/**`) or package/import statement punctuation in code and markup languages.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 7302,
+    "description": "This neuron detects capitalized words or tokens at the beginning of titles, headings, names, or technical terms, often indicating the start of a proper noun or specialized vocabulary.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 5240,
+    "description": "The neuron detects the start of a new line immediately following an opening delimiter (such as `<<.>>`, `<</*>>`, `<</**>>`, or `<<{>>`), particularly in code contexts where line breaks separate structural elements.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 250,
+    "description": "This neuron detects tokens that are the beginning of proper nouns, technical terms, or capitalized words, often representing names, titles, or specialized vocabulary.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 14644,
+    "description": "This neuron detects the first token of proper nouns, technical terms, and function names, particularly when they begin a new topic or entity reference.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 271,
+    "description": "This neuron detects tokens that begin with a capital letter and start a proper noun, title, or significant new concept at the beginning of a line or sentence.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 2104,
+    "description": "The neuron detects the beginning of a new line or block comment, particularly in code contexts where multi-line comments start with `/*` or `/**`, or the start of HTML/XML tags on new lines.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 9537,
+    "description": "A newline character immediately following an opening comment delimiter or tag (such as `/*`, `/**`, or `<html>`).",
+    "balanced_accuracy": NaN,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 4329,
+    "description": "This neuron detects line breaks or newlines that immediately follow opening comment delimiters (/* or /**) or XML/HTML tags (<html>, <body>), as well as periods in package/import statements.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 11701,
+    "description": "This neuron detects the start of a new line immediately following an opening delimiter (such as opening brackets, parentheses, or comment markers) in code or markup.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 13911,
+    "description": "Newline or whitespace token that appears immediately after opening delimiters (such as `<<`, `/*`, `{`, or `(`) in source code formatting.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 8666,
+    "description": "This neuron detects the first character or token of proper nouns, technical terms, and the beginning of new topics or entries (particularly names of people, places, chemical elements, and programming functions).",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 10957,
+    "description": "This neuron detects the beginning of a new line immediately following an opening token (such as `<<`, `/*`, `<html>`, or `.`), often indicating the start of a code block, comment, or HTML structure.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 14862,
+    "description": "This neuron detects the beginning of proper nouns, names, and titles, particularly when they start with capital letters at the beginning of words or abbreviations.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  }
+]

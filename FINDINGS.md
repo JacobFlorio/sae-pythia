@@ -1,172 +1,177 @@
 # Findings: Pythia-160M SAE — layers 3, 6, and 9
 
-Three Top-K SAEs trained identically (16,384 features, k=32, 5M tokens, Pile-uncopyrighted) on layers 3, 6, and 9 of Pythia-160M. This document covers what each SAE learned — reconstruction quality, failure modes, and the semantic features that survive deduplication — plus a cross-layer comparison.
+Three Top-K SAEs trained on layers 3, 6, and 9 of Pythia-160M (16,384 features, k=32, Pile-uncopyrighted) at two token budgets: a 5M-token smoke run and a full 50M-token run. This document covers reconstruction quality, failure modes, geometric analysis, automated interpretability scoring, and what changes between training scales.
 
-All snippets are reproducible from the committed `dashboards/*_sample_dedupe.json` files or regenerated from the full dashboard JSONs via `scripts/build_dashboard.py`. Cross-layer metrics come from `scripts/compare_layers.py`.
+All committed artifacts:
+- `dashboards/features_*_sample_dedupe.json` — top-30 feature slices, Jaccard-deduped
+- `dashboards/layer_comparison.json` — cluster metrics across layers
+- `dashboards/geometry.json` — decoder superposition metrics
+- `dashboards/autointerp_L*.json` — Claude-generated descriptions + balanced accuracy
 
 ---
 
-## Cross-layer summary
+## Cross-layer summary (5M tokens)
 
 | Metric | Layer 3 | Layer 6 | Layer 9 |
 |---|---|---|---|
-| **FVU** (lower = better reconstruction) | 0.078 | **0.074** | 0.125 |
-| Dead latents | 6,658 (~41%) | 6,734 (~41%) | **3,511 (~21%)** |
+| **FVU** | 0.078 | **0.074** | 0.125 |
+| Dead latents | 6,658 (41%) | 6,734 (41%) | **3,511 (21%)** |
 | BOS-only features in top 50 | 24 | **17** | 25 |
 | Strict mid-doc features in top 50 | 0 | **1** | 0 |
 | Unique clusters after Jaccard dedupe | 3 | **5** | 3 |
 | Peak activation median | 68.2 | 65.5 | **48.3** |
-| Peak activation max | 76.0 | 71.7 | **52.0** |
+| Auto-interp balanced accuracy (top 30) | 0.883 | 0.893 | 0.888 |
 
 ---
 
-## 1. Reconstruction quality
+## 1. Reconstruction quality and the 50M training result
 
-Layer 6 achieves the best reconstruction (FVU 0.074) despite having a similar dead-latent fraction to layer 3 (both ~41%). Layer 9 is the outlier: its FVU jumps to 0.125, meaning the SAE explains only ~88% of the variance, 5 points worse than layer 6.
+At 5M tokens, layer 6 is the reconstruction leader (FVU 0.074). At 50M tokens, the picture changes substantially:
 
-The paradox: **layer 9 has the fewest dead latents (21%) but the worst reconstruction.** This implies the layer 9 residual stream is genuinely harder to decompose. By layer 9, the residual stream is deeply contextual — it has integrated 9 rounds of attention and MLP processing — and the superposition of information it encodes may simply not factor cleanly into independent linear features at this training scale. More live latents are necessary but not sufficient.
+| Layer | FVU @ 5M | FVU @ 50M | Dead @ 5M | Dead @ 50M |
+|---|---|---|---|---|
+| Layer 3 | 0.078 | **0.042** | 6,658 (41%) | **1 (<0.01%)** |
+| Layer 6 | 0.074 | 0.057 | 6,734 (41%) | 10 (0.06%) |
+| Layer 9 | 0.125 | 0.099 | 3,511 (21%) | 10 (0.06%) |
+
+**Dead latents are essentially eliminated at 50M tokens across all layers.** The AuxK loss is working — it just needed the token budget. At 5M tokens, 41% of latents were dormant; at 50M, every layer reaches near-zero.
+
+**Layer ranking reverses at 50M tokens.** Layer 3 goes from second-worst (0.078) to best (0.042), a 46% FVU reduction. Layer 6 improves 23% (0.074→0.057). Layer 9 improves 21% (0.125→0.099). Layer 3 benefits most from longer training, likely because early-layer representations are more linearly separable once the SAE has enough capacity to specialize.
+
+**Layer 9 remains the hardest layer at both training scales.** Even with dead latents eliminated and 10× the tokens, layer 9 reconstruction (FVU 0.099) does not reach layer 6's 5M-token performance (0.074). This persistence across training scales is the central mystery.
 
 ---
 
-## 2. Pathology: BOS absorption clusters
+## 2. The layer 9 paradox: geometry rules out superposition
 
-All three layers have a cluster of duplicated latents that fire on the first content token of a document (`token_pos=0`), regardless of what that token is. The cluster is largest at layer 9 (25/50), smallest at layer 6 (17/50).
+At 5M tokens, layer 9 has *fewer* dead latents (21%) than layers 3 and 6 (both 41%), yet substantially worse reconstruction. The natural hypothesis: layer 9 encodes information in denser superposition, requiring more live latents to handle interference. We tested this directly with decoder column geometry.
+
+| Layer | Mean cos sim | Frac pairs \|cos\|>0.1 | Uniformity loss | Effective rank |
+|---|---|---|---|---|
+| Layer 3 | **0.00422** | **0.0108** | -3.9716 | 672.0 |
+| Layer 6 | 0.00136 | 0.0072 | **-3.9833** | **689.8** |
+| Layer 9 | 0.00273 | 0.0088 | -3.9769 | 683.9 |
+
+**The superposition hypothesis is rejected.** Layer 9 does not have higher decoder column cosine similarity, more interfering pairs, worse uniformity, or lower effective rank than layers 3 or 6. In fact, layer 3 — which achieves the *best* reconstruction at 50M tokens — has the *highest* mean cosine similarity. Decoder geometry does not predict reconstruction difficulty.
+
+**Conclusion:** The layer 9 paradox is intrinsic to the residual stream, not the SAE's learned decoder. By layer 9, the residual stream encodes 9 rounds of contextually-integrated information. That representation is genuinely harder to decompose into sparse, linearly-independent directions — not because the SAE fails to spread its decoder columns evenly, but because the information itself doesn't factor cleanly at this model size and training budget. More tokens or a larger SAE may close the gap; a fundamentally different architecture (e.g., attention-based encoder) might fare better.
+
+---
+
+## 3. Pathologies: BOS and paragraph-break clusters
+
+All three layers have duplicated latents absorbing the highest-variance structural positions.
+
+**BOS super-cluster** (fires at `token_pos=0` on document-start tokens):
+```
+# Cluster representative, layer 3 — max activation 76.0
+[76.0] 'Anthony'  Anthony Iluobe  Chief Anthony Iluobe (JP) was born in …
+[74.9] 'Guard'    Guard youths from alcopops  9:55 AM, May 8, …
+[74.9] 'Prom'     Promethium: uses  The following uses for promethium …
+
+# Layer 6 — max 71.7
+[71.7] 'Guard'    Guard youths from alcopops  9:55 AM, May 8, …
+
+# Layer 9 — max 52.0 (signal weakens at depth)
+[52.0] 'Prom'     Promethium: uses  The following uses for promethium …
+```
+
+**Paragraph-break cluster** (fires on early-document newlines in code headers and HTML):
+```
+[74.3] '\n'  /**  * ScriptDev2 is an extension for mangos …
+[74.3] '\n'  Confederación Revolucionaria de Obreros y Campesinos …
+[74.0] '\n'   Her mate, inspired by all the money she knows Purdy is saving …
+```
+
+At 5M tokens: 17–25 of the top-50 peak-ranked features are BOS-only; only 5 unique doc-fingerprints survive Jaccard-0.5 deduplication. 90% of the top list is duplicated positional absorption.
+
+---
+
+## 4. Automated interpretability scoring
+
+Auto-interp was run on the top-30 features (by peak activation) from each layer's full dashboard. Claude generates a one-sentence description from the top-activating examples, then predicts which of a held-out mix of positive/negative snippets will fire. Balanced accuracy: 0.5 = random, 1.0 = perfect.
+
+| Layer | Features scored | Mean balanced accuracy | Features @ 1.00 | Features < 0.65 |
+|---|---|---|---|---|
+| Layer 3 | 30 | 0.883 | 8 | 2 |
+| Layer 6 | 28 | 0.893 | 8 | 1 |
+| Layer 9 | 29 | 0.888 | 8 | 1 |
+
+Scores are nearly identical across layers. This has a specific interpretation: **the top-30 by peak activation is dominated by structural features that score trivially well.** BOS-cluster and paragraph-break features get 1.00 because their pattern is "fires on document-start tokens" — perfectly predictable with high overlap. The features that *fail* auto-interp reveal the limit:
 
 ```
-# Layer 3, cluster representative — max=76.0
-[76.0] 'Anthony'   Anthony Iluobe  Chief Anthony Iluobe (JP) was born in …
-[74.9] 'Guard'     Guard youths from alcopops  9:55 AM, May 8,
-[74.9] 'Prom'      Promethium: uses  The following uses for promethium …
+# Layer 3, latent 13954 — score 0.50
+"The neuron detects the first few characters of proper nouns,
+ names, and titles, particularly at the beginning of words or phrases."
 
-# Layer 6, cluster representative — max=71.7
-[71.7] 'Guard'     Guard youths from alcopops  9:55 AM, May 8,
-[71.4] 'Prom'      Promethium: uses  The following uses for promethium …
-[71.2] 'Anthony'   Anthony Iluobe  Chief Anthony Iluobe (JP) was born in …
-
-# Layer 9, cluster representative — max=52.0
-[52.0] 'Prom'      Promethium: uses  The following uses for promethium …
-[51.5] 'Guard'     Guard youths from alcopops  9:55 AM, May 8,
-[51.5] 'Anthony'   Anthony Iluobe  Chief Anthony Iluobe (JP) was born in …
+# Layer 9, latent 7151 — score 0.38
+"Newline character following code comment markers,
+ class/package declarations, or HTML/XML opening tags."
 ```
 
-**The BOS signal weakens with depth.** The peak activation of the strongest BOS-cluster representative drops from 76.0 (layer 3) to 71.7 (layer 6) to 52.0 (layer 9). This makes sense: at layer 3, the residual stream still closely resembles the raw token embedding, which has high position-0 variance; by layer 9, 9 rounds of attention have diffused that positional signal into a broader contextual representation.
+Latent 13954 fails because its BOS-cluster firing is generic: it fires on the first token of a document regardless of what it is, so Claude's description of "proper nouns" only partially predicts the held-out positives. Latent 7151 actually scores *below* chance (0.38) — Claude's description is wrong, suggesting the feature activates on something else entirely.
 
-A second structural cluster — duplicated latents firing on early-document newlines (code license headers, HTML structure) — appears at all three layers with similar characteristics. Layer 6 has 5 unique clusters after Jaccard-0.5 deduplication; layers 3 and 9 collapse to only 3 each, confirming that the top-50 peak-ranked list at those layers is almost entirely structural absorption.
+**High auto-interp score measures predictability, not semantic richness.** The most interesting features found by Jaccard deduplication (GCD problems, auto-insurance boilerplate, patent figure captions) score similarly to structural features but are far more informative as research artifacts.
 
 ---
 
-## 3. Real features by layer
+## 5. Semantic features by layer
 
-After fingerprint deduplication, semantic features become visible. A striking pattern emerges: **the character of the features shifts with depth**, from lexical token patterns at layer 3 toward more contextual and concept-level features at layer 9.
+After fingerprint deduplication, semantic features emerge with a clear depth progression:
 
 ### Layer 3 — lexical and template features
+Features respond to specific token fragments, largely independent of context.
 
-Layer 3 features respond to specific tokens or near-verbatim templates. The model hasn't had time to integrate much context, so the clearest features are ones where the token itself carries almost all the signal.
-
-**Feature 4633 — "U.S. Pat." abbreviation in patent text (peak 8.6)**
-```
-[8.6] ' Pat'   … significantly improving document processing, as disclosed in U.S. Pat. Nos. 4,205,780 …
-[8.6] ' Pat'   … a powdered fertilizer material is illustrated by the U.S. Pat. No. to F …
-[8.5] ' Pat'   … various methods to produce composite materials. U.S. Pat. No. 2,931, …
-```
-Fires on the word fragment `Pat` in "U.S. Pat." across unrelated patents (document processing, fertilizers, composite materials).
-
-**Feature 7752 — "Public" in GNU GPL boilerplate (peak 8.6)**
-```
-[8.6] ' Public'  … You should have received a copy of the GNU General Public License …
-[8.6] ' Public'  … MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License …
-[8.4] ' Public'  … redistribute it and/or modify it under the terms of the GNU General Public License …
-```
-Fires on "Public" in the GPL boilerplate phrase, across different programs. Generalizes across at least three distinct software projects.
-
-**Feature 742 — judicial title in US court opinions (peak 8.5)**
-```
-[8.5] ' Judge'    … BENTON, Circuit Judge.  Barbara …
-[6.7] ' Justice'  … HARWOOD, Justice. Charles Sharrief and Millie Sharrief …
-[6.6] ' Judges'   … LOKEN, COLLOTON, and BENTON, Circuit Judges …
-```
-Fires on judicial titles ("Judge," "Justice," "Judges") in the signature lines of US federal and state court opinions.
-
-**Feature 13118 — "FIG." reference in patent figure captions (peak 8.5)**
-```
-[8.5] 'FIG'   … acts as a working fluid. FIG. 1 is a vertical cross-section …
-[8.5] 'FIG'   … a radio protocol as close as possible to radio channels. FIG. 1 is a diagram …
-[8.4] 'FIG'   … throughput in an individual wafer processing system. FIG. 14 shows …
-```
-Fires on "FIG" in patent figure cross-references across electronics, communications, and semiconductor patents.
-
-**Feature 9354 — "in vitro" in biomedical literature (peak 8.4)**
-```
-[8.4] ' vitro'   … the present in vitro study was designed to further support our previous in vivo results …
-[8.4] ' vitro'   … have been shown to beneficially affect targeted cellular functions *in vitro* …
-[8.3] ' vitro'   … the value of such studies is uncertain. Polysaccharides that elicit effects *in vitro* …
-```
-Fires on "vitro" in the Latin phrase "in vitro" across biomedical research papers. Generalizes across both plain text and Markdown-italic formatting.
-
----
+| Feature | Peak | Description |
+|---|---|---|
+| 4633 | 8.6 | "U.S. Pat." abbreviation in patent filings |
+| 7752 | 8.6 | "Public" in GNU General Public License boilerplate |
+| 742  | 8.5 | Judicial titles ("Judge," "Justice," "Judges") in US court opinions |
+| 13118 | 8.5 | "FIG." in patent figure cross-references |
+| 9354 | 8.4 | "vitro" in "in vitro" across biomedical papers (plain + Markdown italic) |
 
 ### Layer 6 — phrasal and register features
+Features respond to surrounding register and phrasing, not just the token.
 
-Layer 6 features move beyond individual tokens: they respond to the surrounding register and phrasing, not just the token itself. The auto-insurance feature (5735) fires on tokens like "lapse" and "miles" that are common words — but only in the specific syntactic and register context of insurance policy disclaimers.
+| Feature | Peak | Description |
+|---|---|---|
+| 5735 | 20.2 | Auto-insurance rate-quote disclaimer boilerplate |
+| 4895 | 9.7 | Patent "Field of the Invention" opening section |
+| 11957 | 9.3 | Apache/BSD license "WITHOUT WARRANTIES… OF ANY KIND" clause |
+| 10188 | 17.0 | Hyphens inside biomedical bibliographic citation markup |
+| 10166 | 9.2 | HackerNews `------ username` reply-thread separators |
 
-*(Full layer 6 features documented above in the original findings: 5735 auto-insurance boilerplate, 4895 patent "Field of the Invention," 11957 Apache-license warranty, 10188 biomedical citation hyphens, 10166 HackerNews reply separators.)*
+### Layer 9 — domain and concept features
+Features fire on domain-specific conceptual patterns; peak activations are lower but the patterns are sharper.
 
----
+| Feature | Peak | Description |
+|---|---|---|
+| 12045 | 31.5 | "Greatest common divisor" in math problem sets (GCD/HCF) |
+| 11476 | 26.5 | HackerNews reply-thread newlines (appears at L6 and L9) |
+| 9612  | 28.6 | Indentation whitespace in HTML/code contexts |
+| 6710  | 25.2 | Decimal points in numeric literals and JSON |
 
-### Layer 9 — concept and domain features
-
-Layer 9 features show the most conceptually specific activations of the three layers, though peak activations are substantially lower (max 52 for BOS vs. max ~30 for the semantic features).
-
-**Feature 12045 — "greatest common divisor" in math problem sets (peak 31.5)**
-```
-[31.5] ' divisor'  … Calculate the highest common divisor of 3347 and 7. 1  …
-[30.9] ' divisor'  … Calculate the greatest common divisor of 13864 and 2504. 8 …
-[30.1] ' divisor'  … Calculate the greatest common divisor of 2180 and 237838. 218 …
-```
-Fires specifically on "divisor" within GCD/HCF problem statements, across different numbers. The strongest mid-document semantic feature in the whole comparison — it fires at positions 87–435, entirely within math problem text.
-
-**Feature 11476 — HackerNews reply-thread newlines (peak 26.5)**
-```
-[26.5] '\n'   … Signal doesn't allow.  ------ fit2rule The free world needs …
-[25.4] '\n'   … something which isn't as questionable.  ~~~ mmPzf A big plus …
-[24.9] ' the' … The intervention group followed a 12-week traditional dance …
-```
-The `------ username` HackerNews separator fires at both layer 6 and layer 9, suggesting this structural feature is robustly represented across multiple layers of the network.
-
-**Feature 9612 — HTML/code indentation whitespace (peak 28.6)**
-```
-[28.6] '       '  … id="cust_1">customer 1</a></li>        <li title="cust 2"> …
-[28.1] '    '     … text/html; charset=iso-8859-1"></head>     <frameset rows="92, *" …
-[27.1] "('"        … database.getTable('CLIENTS') because when I comment …
-```
-Fires on indentation-style whitespace in HTML and code snippets — a formatting feature that may reflect the model tracking code structure at deeper layers.
-
-**Feature 6710 — decimal points in numeric/JSON data (peak 25.2)**
-```
-[25.2] '.'   … "boxHeight": 2.55,   "boxLength": 2.55,   "boxWidth": 2.55 …
-[25.2] '.'   … management-core-3.0.4-javadoc.jar.md5 …
-[24.8] '.'   … "boxLength": 2.55,   "boxWidth": 2.55 …
-```
-Fires on decimal points in numeric literals within JSON and filename versioning contexts.
+The lexical→phrasal→conceptual gradient is consistent with mechanistic interpretability accounts of how transformer layers progressively integrate context.
 
 ---
 
-## 4. Takeaways
+## 6. Methodological findings
 
-**1. Layer 6 is the sweet spot at this training scale.** It has the best reconstruction (FVU 0.074), the smallest BOS cluster (17/50), the most unique feature clusters (5), and is the only layer to surface a strict mid-document semantic feature in its top-50 peak list. This is likely specific to 5M tokens — with longer training, layers 3 and 9 may catch up.
+**1. Rank by peak activation is a trap.** At 5M tokens, 90% of the top-50 list is duplicated positional absorbers. Fingerprint-based Jaccard deduplication is cheap and effective.
 
-**2. Layer 9 features are more conceptually specific but harder to find.** The GCD feature is the cleanest semantic hit across all three layers, but it activates at much lower magnitude (peak 31.5) compared to the structural absorbers (peak 52). At this training scale, layer 9 cannot reconstruct its residual stream as well as layers 3 or 6, even though it has fewer dead latents — meaning the deeper residual stream resists linear decomposition.
+**2. High auto-interp score ≠ interesting feature.** Structural absorbers score 1.00 because they're trivially predictable; that inflates mean balanced accuracy without reflecting semantic richness.
 
-**3. Feature character shifts with depth: lexical → phrasal → conceptual.** Layer 3 fires on specific token fragments ("Pat.", "FIG.", "vitro") regardless of broader context. Layer 6 fires on phrase-level register signals (the auto-insurance disclaimer context, the GPL license phrase). Layer 9 fires on domain-level concepts (GCD problem format). This gradient is consistent with what attention-head circuit analysis suggests: early layers track syntactic and lexical patterns; later layers integrate broader context into domain representations.
+**3. Dead-latent fraction is a training-budget signal, not a quality signal.** At 5M tokens it looks like a failure; at 50M it essentially disappears. The AuxK coefficient doesn't need tuning — the default just needs more data.
 
-**4. The BOS absorption pathology is universal but layer-dependent.** All three layers have it; it's worst at layers 3 and 9, slightly better at layer 6. The peak activation of the BOS cluster decays monotonically with depth (76 → 72 → 52), suggesting the positional signal becomes less dominant in the residual stream as context accumulates.
+**4. Layer 9's difficulty is intrinsic to its residual stream.** Decoder geometry (cosine similarity, effective rank, uniformity) does not explain why layer 9 is harder to reconstruct. The information in deep residual streams resists linear decomposition at this model size.
 
-**5. The peak-activation collapse at layer 9 is the most unexpected result.** Median peak drops from 68.2 (layer 3) to 65.5 (layer 6) to 48.3 (layer 9). The full range compresses to [44, 52] at layer 9 — almost no spread — compared to [20, 72] at layer 6. This is consistent with the residual stream at layer 9 encoding information in denser superposition, where no single direction dominates enough for a top-k SAE to claim it confidently.
+**5. Layer 3 is the training-scale surprise.** At 5M tokens it looks like the worst layer (tied with L9); at 50M it beats layer 6 by 27% on FVU. Early-layer representations apparently benefit more from latent specialization once the dead-latent budget is freed.
 
 ---
 
-## 5. Next steps
+## 7. Next steps
 
-- **Longer training.** 5M tokens with 41% dead latents is close to the minimum viable run. The cross-layer character shift (lexical → phrasal → conceptual) is preliminary; it should be confirmed at 50M tokens where dead-latent fraction should drop substantially.
-- **Auto-interp scoring.** The `run_autointerp.py` script generates Claude descriptions and balanced-accuracy scores for each feature. Running it across all three layers would turn the qualitative observations above into a quantitative interpretability metric per layer.
-- **Dead-latent revival.** Layer 9's paradox (more live latents, worse FVU) warrants a follow-up run with a higher AuxK coefficient to see if forcing more latents active improves reconstruction at depth, or whether the problem is fundamental to the residual stream geometry.
+- **50M dashboards + cross-layer comparison.** Build dashboards from the 50M checkpoints and re-run `compare_layers.py` to see whether the BOS cluster shrinks and mid-document feature count increases at the longer training scale.
+- **50M auto-interp.** Score the 50M dashboards and compare balanced-accuracy distributions — the key question is whether the semantic features score higher once structural absorbers weaken.
+- **Targeted autointerp on dedupe-filtered features.** Current auto-interp runs on top-30 by peak, which is dominated by structural features. Running it specifically on the dedupe sample would give scores for the semantically interesting features.
+- **Layer 9 deep dive.** The residual stream geometry hypothesis is rejected; what explains the difficulty? Candidates: higher effective dimensionality of activations, stronger interdependence between token positions, or a mismatch between the top-k sparsity constraint and how information is encoded at depth.
