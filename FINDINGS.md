@@ -239,7 +239,7 @@ Layer 9 apparently has more diverse semantic content to represent, requiring mor
 
 ## 8. Next steps
 
-- **50M auto-interp.** Score the 50M dashboards; the key question is whether balanced accuracy rises now that the top-30 is less dominated by structural features.
+- **50M auto-interp — done.** Scores: L3 0.901 (+0.018 vs 5M), L6 0.804 (−0.089), L9 0.858 (−0.030). The L6 drop is the most interpretable result: at 50M tokens the top-30 features are genuinely more complex, making Claude's one-sentence descriptions harder to score against. This is a good sign — the features have more nuance than "fires on first token."
 - **Cross-scale feature matching.** Identify individual features that appear at both 5M and 50M (confirmed: auto-insurance, GCD, citation hyphens) and compute their cosine similarity in decoder space — a direct measure of training stability.
 - **Layer 9 long-tail analysis.** What explains the residual FVU gap at layer 9? Profile which token positions or document types contribute most to the unrecovered variance.
 - **100M+ run.** Does the L9 FVU gap close with more tokens, or is there a floor? The layer ordering (L3 < L6 < L9 on FVU) is consistent across both scales — testing at 100M would establish whether it's converging.

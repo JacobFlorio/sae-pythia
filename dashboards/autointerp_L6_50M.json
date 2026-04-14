@@ -1,211 +1,211 @@
 [
   {
     "latent": 1599,
-    "description": "This neuron detects capitalized tokens that begin proper nouns, abbreviations, or the start of new topics/entries (often names of people, places, organizations, or technical terms).",
-    "balanced_accuracy": 0.875,
+    "description": "This neuron detects proper nouns and capitalized words at the beginning of titles, names, or technical terms, particularly when they appear at the start of a text segment or entry.",
+    "balanced_accuracy": 1.0,
     "n_positive": 4,
     "n_negative": 4
   },
   {
     "latent": 300,
-    "description": "This neuron detects capitalized single letters or short abbreviations that begin proper nouns, names, or technical terms at the start of titles, sentences, or document sections.",
-    "balanced_accuracy": 0.875,
+    "description": "This neuron detects the first letter of a proper noun, organization name, or technical term at the beginning of a title, heading, or new section.",
+    "balanced_accuracy": 0.75,
     "n_positive": 4,
     "n_negative": 4
   },
   {
     "latent": 14019,
-    "description": "This neuron detects single capital letters that begin proper nouns, names, or technical terms, particularly at the start of titles, headings, or sentences.",
-    "balanced_accuracy": 0.875,
+    "description": "This neuron detects the first letter or initial token of proper nouns, names, titles, or the beginning of specialized terms and product names.",
+    "balanced_accuracy": 1.0,
     "n_positive": 4,
     "n_negative": 4
   },
   {
     "latent": 12620,
-    "description": "This neuron detects the first letter of proper nouns, names, or specialized terms at the beginning of titles, sentences, or document sections.",
+    "description": "This neuron detects the first letter or initial character of proper nouns, names, titles, and technical terms at the beginning of sentences or entries.",
     "balanced_accuracy": 1.0,
     "n_positive": 4,
     "n_negative": 4
   },
   {
     "latent": 1131,
-    "description": "This neuron detects the first token of a proper noun, title, or technical term, particularly at the beginning of titles, names, locations, or scientific/medical terminology.",
-    "balanced_accuracy": 0.5,
-    "n_positive": 4,
-    "n_negative": 4
-  },
-  {
-    "latent": 4717,
-    "description": "This neuron detects the first letter or initial character of proper nouns, names, titles, and the beginning of new topics or entries.",
+    "description": "This neuron detects the first token of proper nouns, particularly names of people, places, organizations, and technical terms at the beginning of titles or sentences.",
     "balanced_accuracy": 0.75,
     "n_positive": 4,
     "n_negative": 4
   },
   {
+    "latent": 4717,
+    "description": "This neuron detects the first letter or initial character of proper nouns, names, or titles at the beginning of a text snippet or new topic.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
     "latent": 13549,
-    "description": "This neuron detects the first capitalized letter or token at the beginning of proper nouns, brand names, technical terms, or the start of new sentences/sections.",
+    "description": "This neuron detects capitalized words or tokens at the beginning of proper nouns, titles, or specialized terms, particularly those starting with letters like \"A\", \"B\", \"S\", or \"R\".",
     "balanced_accuracy": 0.75,
     "n_positive": 4,
     "n_negative": 4
   },
   {
     "latent": 7120,
-    "description": "This neuron detects past participle verbs or adjectives that describe states, conditions, or qualities being attributed to something.",
+    "description": "This neuron detects words that describe attributes, states, or characteristics in comparative or descriptive contexts, often appearing in conditional or evaluative statements.",
     "balanced_accuracy": 0.5,
     "n_positive": 4,
     "n_negative": 4
   },
   {
     "latent": 12269,
-    "description": "This neuron detects hyphens or dashes that appear within citation references or hyperlink syntax, particularly in academic or technical text formatting.",
+    "description": "This neuron detects hyphens or dashes used in citation reference links and HTML attribute separators, particularly in academic or technical document markup.",
     "balanced_accuracy": 0.875,
     "n_positive": 4,
     "n_negative": 4
   },
   {
     "latent": 2326,
-    "description": "This neuron detects line breaks or newlines that separate distinct sections, titles, or segments of text, often marking transitions between different topics or formatting contexts.",
+    "description": "This neuron detects line breaks or newlines that appear immediately after a section heading, title, or introductory phrase, typically marking the transition to the main body of content.",
     "balanced_accuracy": 0.75,
     "n_positive": 4,
     "n_negative": 4
   },
   {
     "latent": 4149,
-    "description": "This neuron detects periods that end academic, technical, or formal article titles and abstracts, typically appearing at the boundary between a title/header and the beginning of the main text.",
-    "balanced_accuracy": 0.75,
+    "description": "This neuron detects periods that mark the end of article titles, abstracts, or section headings, particularly in academic, technical, or formal written contexts.",
+    "balanced_accuracy": NaN,
     "n_positive": 4,
     "n_negative": 4
   },
   {
     "latent": 8941,
-    "description": "This neuron detects periods or dots that serve as delimiters in version numbers, file extensions, or as sentence-ending punctuation in formal or technical text.",
+    "description": "This neuron detects periods or dots that appear after version numbers, case citations, abbreviations, or at the end of sentences in formal or technical text.",
     "balanced_accuracy": 1.0,
     "n_positive": 4,
     "n_negative": 4
   },
   {
     "latent": 6326,
-    "description": "This neuron detects line breaks or newlines that occur after a partial word or sentence fragment, particularly in HTML markup, forum posts, article titles, or structured text where content continues on the next line.",
+    "description": "This neuron detects newline characters or line breaks that appear after text snippets, particularly at the end of titles, headings, or incomplete sentences.",
     "balanced_accuracy": 1.0,
     "n_positive": 4,
     "n_negative": 4
   },
   {
     "latent": 11680,
-    "description": "This neuron detects periods that mark the end of a complete sentence or independent clause, particularly when followed by content that continues or elaborates on the same topic.",
+    "description": "This neuron detects sentence-ending periods that conclude a complete thought or statement, particularly those followed by a transition to a new but related topic or example.",
     "balanced_accuracy": 1.0,
     "n_positive": 4,
     "n_negative": 4
   },
   {
     "latent": 13031,
-    "description": "This neuron detects sentence-ending periods that are followed by text providing additional context, elaboration, or examples related to the preceding statement.",
-    "balanced_accuracy": 0.75,
+    "description": "This neuron detects sentence-ending periods that are followed by a transition to a new topic or elaboration, often introducing background information, context, or examples related to the preceding statement.",
+    "balanced_accuracy": 0.625,
     "n_positive": 4,
     "n_negative": 4
   },
   {
     "latent": 15037,
-    "description": "This neuron detects sentence-ending periods, particularly those that mark the conclusion of a complete thought or statement before transitioning to a new topic or sentence.",
+    "description": "This neuron detects sentence-ending periods, particularly those that conclude a complete thought or statement before transitioning to a new sentence or topic.",
     "balanced_accuracy": 1.0,
     "n_positive": 4,
     "n_negative": 4
   },
   {
     "latent": 1920,
-    "description": "This neuron detects periods (dots) used as separators in version numbers, package names, and domain-like identifiers in programming contexts.",
+    "description": "The neuron detects periods/dots that serve as separators in version numbers, package names, or domain-like hierarchical identifiers.",
     "balanced_accuracy": 0.5,
     "n_positive": 4,
     "n_negative": 4
   },
   {
     "latent": 2940,
-    "description": "This neuron detects words that continue or complete a compound term, technical phrase, or multi-word expression, particularly in medical, scientific, or technical contexts.",
-    "balanced_accuracy": 0.25,
+    "description": "This neuron detects tokens that are part of compound words or technical terms, often appearing in the middle or end of multi-syllable medical, technical, or programming-related terminology.",
+    "balanced_accuracy": 0.625,
     "n_positive": 4,
     "n_negative": 4
   },
   {
     "latent": 6267,
-    "description": "This neuron detects sentence-ending periods that conclude a complete thought or statement, particularly in formal or informational text where the period marks a natural transition point before a new topic or elaboration begins.",
+    "description": "This neuron detects sentence-ending periods that conclude a complete thought or statement, particularly in formal or technical writing where the sentence provides context or background information before transitioning to a new topic.",
     "balanced_accuracy": 1.0,
     "n_positive": 4,
     "n_negative": 4
   },
   {
     "latent": 3190,
-    "description": "This neuron detects line breaks or paragraph boundaries, particularly those that separate distinct sections of text or precede new content blocks.",
-    "balanced_accuracy": 0.625,
+    "description": "This neuron detects newline characters or line breaks, particularly those that separate a title, header, or metadata from subsequent body text or content.",
+    "balanced_accuracy": 0.75,
     "n_positive": 4,
     "n_negative": 4
   },
   {
     "latent": 9793,
-    "description": "This neuron detects line breaks or newlines that occur after version numbers, package paths, case citations, or other technical identifiers in code and formal documents.",
-    "balanced_accuracy": 0.5,
+    "description": "This neuron detects line breaks or newlines that occur after declarative statements, package declarations, version numbers, or other formal document elements, particularly in code and structured text formats.",
+    "balanced_accuracy": 0.625,
     "n_positive": 4,
     "n_negative": 4
   },
   {
     "latent": 10477,
-    "description": "This neuron detects sentence-ending periods that conclude the title, heading, or introductory statement of an academic, technical, or formal document before transitioning to the main body text.",
-    "balanced_accuracy": 0.875,
+    "description": "The neuron appears to detect sentence-ending periods that conclude introductory or background information before a transition to elaborating details, contrasting information, or historical context.",
+    "balanced_accuracy": 1.0,
     "n_positive": 4,
     "n_negative": 4
   },
   {
     "latent": 14989,
-    "description": "This neuron detects periods that mark the end of a complete sentence or thought, particularly in formal or academic writing contexts where one sentence concludes before transitioning to a new but related topic.",
+    "description": "This neuron detects periods that end academic or formal document titles, abstracts, or section headings, typically followed by the beginning of the main text content.",
     "balanced_accuracy": 0.875,
     "n_positive": 4,
     "n_negative": 4
   },
   {
     "latent": 16042,
-    "description": "This neuron detects tokens that are part of file paths, directory names, method names, or identifiers in technical/programming contexts, often appearing after forward slashes or in camelCase notation.",
+    "description": "This neuron detects fragments of file paths, directory names, function names, or identifiers that appear to be part of a larger technical or code-related term.",
     "balanced_accuracy": 0.875,
     "n_positive": 4,
     "n_negative": 4
   },
   {
     "latent": 1060,
-    "description": "This neuron detects periods that mark the end of complete sentences or independent clauses, particularly when followed by a new sentence that continues or elaborates on the previous topic.",
+    "description": "This neuron detects sentence-ending periods, particularly those that complete declarative statements in formal or technical writing contexts.",
     "balanced_accuracy": 1.0,
     "n_positive": 4,
     "n_negative": 4
   },
   {
     "latent": 4906,
-    "description": "This neuron detects words that represent categories, fields, or domains of activity, often appearing as labels or section headers in titles and text.",
+    "description": "This neuron detects nouns or noun-like tokens that represent categories, fields of study, or section headings, particularly when they appear at the beginning of titles, labels, or organizational structures.",
     "balanced_accuracy": 1.0,
     "n_positive": 4,
     "n_negative": 4
   },
   {
     "latent": 7214,
-    "description": "This neuron detects newline characters or line breaks that appear after titles, headers, dates, or other introductory text elements, typically marking the transition from metadata or heading to the main content.",
+    "description": "This neuron detects newline characters that precede the start of new content sections, particularly when transitioning from headers, metadata, or introductory text to the main body of content.",
     "balanced_accuracy": 1.0,
     "n_positive": 4,
     "n_negative": 4
   },
   {
     "latent": 6538,
-    "description": "This neuron detects capitalized words or proper nouns that appear to be titles, names, or section headers, particularly when they start a phrase or are used as labels.",
+    "description": "This neuron detects capitalized words that appear to be titles, headings, names, or the first word in a formal label or category designation.",
     "balanced_accuracy": 0.875,
     "n_positive": 4,
     "n_negative": 4
   },
   {
     "latent": 16231,
-    "description": "This neuron detects opening square brackets that typically introduce titles, citations, or bracketed references at the beginning of academic articles, medical literature, or song credits.",
+    "description": "This neuron detects opening square brackets, typically at the beginning of article titles, paper citations, song credits, or other formatted text sections.",
     "balanced_accuracy": 0.5,
     "n_positive": 4,
     "n_negative": 4
   },
   {
     "latent": 5584,
-    "description": "This neuron detects sentence-ending periods, particularly those that conclude complex or formal statements in academic, technical, or journalistic writing.",
-    "balanced_accuracy": 1.0,
+    "description": "This neuron detects periods that mark the end of titles, headings, or introductory statements, particularly in academic or formal writing contexts.",
+    "balanced_accuracy": 0.875,
     "n_positive": 4,
     "n_negative": 4
   }
