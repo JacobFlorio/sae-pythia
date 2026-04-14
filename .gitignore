@@ -21,6 +21,8 @@ dashboards/*
 !dashboards/layer_comparison.json
 !dashboards/geometry.json
 !dashboards/autointerp_L*.json
+!dashboards/features_L*_50M_dedupe.json
+!dashboards/layer_comparison_50M.json
 
 .env
 .vscode/

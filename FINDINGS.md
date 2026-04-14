@@ -169,9 +169,77 @@ The lexical→phrasal→conceptual gradient is consistent with mechanistic inter
 
 ---
 
-## 7. Next steps
+## 7. The 50M token results: a phase transition in feature quality
 
-- **50M dashboards + cross-layer comparison.** Build dashboards from the 50M checkpoints and re-run `compare_layers.py` to see whether the BOS cluster shrinks and mid-document feature count increases at the longer training scale.
-- **50M auto-interp.** Score the 50M dashboards and compare balanced-accuracy distributions — the key question is whether the semantic features score higher once structural absorbers weaken.
-- **Targeted autointerp on dedupe-filtered features.** Current auto-interp runs on top-30 by peak, which is dominated by structural features. Running it specifically on the dedupe sample would give scores for the semantically interesting features.
-- **Layer 9 deep dive.** The residual stream geometry hypothesis is rejected; what explains the difficulty? Candidates: higher effective dimensionality of activations, stronger interdependence between token positions, or a mismatch between the top-k sparsity constraint and how information is encoded at depth.
+Building dashboards from the 50M checkpoints and rerunning `compare_layers.py` reveals a near-complete transformation in feature landscape.
+
+### Cluster metrics: before and after
+
+| Metric | L3 5M | L3 50M | L6 5M | L6 50M | L9 5M | L9 50M |
+|---|---|---|---|---|---|---|
+| BOS-only features / top 50 | 24 | 16 | 17 | 22 | 25 | **12** |
+| Strict mid-doc / top 50 | 0 | 12 | 1 | 12 | 0 | **25** |
+| Unique clusters (Jaccard dedupe) | 3 | 27 | 5 | 26 | 3 | **39** |
+| Peak activation median | 68.2 | 17.9 | 65.5 | 26.0 | 48.3 | 21.2 |
+
+**The BOS super-cluster is a training-budget artifact, not an intrinsic SAE property.** At 5M tokens, 3–5 unique clusters survive deduplication of the top-50 peak list — meaning ~90% of the list is structural duplication. At 50M, that collapses to 26–39 unique clusters, meaning the top-50 now contains genuine feature diversity.
+
+**Layer 9 reversal.** At 5M tokens, layer 9 had the worst feature diversity (3 unique clusters, 0 strict mid-doc features) despite fewest dead latents. At 50M, it has the *best* diversity (39 unique clusters, 25/50 strict mid-doc features). The layer 9 paradox fully inverts at the longer training scale: once latents specialize, the deeper residual stream supports richer feature decomposition, not poorer.
+
+**Peak activation collapse is expected and healthy.** Median peak drops from ~65 (5M) to ~18–26 (50M). With dead latents revived and specializing, activation mass spreads across hundreds of distinct features instead of concentrating in a few structural absorbers. Lower peak = more distributed representation.
+
+### Known features persist and strengthen
+
+Three features found at 5M appear again at 50M with higher activation — confirming they are stable, real features rather than training noise:
+
+| Feature | Layer | Peak @ 5M | Peak @ 50M | Description |
+|---|---|---|---|---|
+| Auto-insurance boilerplate | L6 | 20.2 | **43.6** | "lapse in coverage," "miles annually," rate disclaimers |
+| Greatest common divisor | L9 | 31.5 | **41.0** | "calculate the highest common divisor of…" |
+| Biomedical citation hyphens | L6 | 17.0 | **35.2** | Hyphens in `{ref-type="other"}` markup |
+
+**Cross-scale feature persistence is strong evidence of genuine learning.** A feature that was present at 5M tokens and strengthens at 50M is not a coincidence — the SAE is recovering a real direction in the residual stream that the model consistently uses for that concept.
+
+### New features at 50M
+
+Several features that were invisible at 5M emerge clearly at 50M:
+
+**L9, feature 7535 — StackExchange/Q&A format (peak 41.7)**
+```
+[41.7] ' doesn'  … equipped with the same amount of information, simply doesn't get it. When I sta …
+[39.0] '\n'      … the database to the thread with no luck. Any ideas? Thanks!  A:  Segmentation faults in Python …
+[39.0] '\n'      … find the limits of integration simply by changing to polar coordinates. Thanks  A:  In polar coor …
+```
+Fires on Q&A reply structure — the newline before "A: " in StackExchange-formatted answers, and contextually around question-answer transitions.
+
+**L6, feature 1920 — XML/Android layout declarations (peak 29.5)**
+```
+[29.5] '.'  <?xml version="1.0" encoding="utf-8"?> <LinearLayout xmlns:android= …
+[29.5] '.'  <?xml version="1.0" encoding="UTF-8"?> <segment>     < …
+[29.5] '.'  <?xml version="1.0" encoding="utf-8"?> <RelativeLayout android:layout …
+```
+Fires on the period in `version="1.0"` across XML declarations from Android layouts, data files, and markup formats.
+
+**L3, feature 611 — sentence-ending period in mid-document prose (peak 24.1)**
+```
+[24.1] '.'  … modern cell phones feature a multitude of features that expand on the traditional cell phone functi …
+[24.1] '.'  … mystics and their task; we existed like stray animals sheltered in a monastery. …
+[24.0] '.'  … Sacramento Kings' (16-22) recent poor play minus a star resurfaced. The thought came to fruition …
+```
+Fires on periods at sentence boundaries in continuous prose, positions 23–50. A structural feature, but a mid-document one — different from the BOS absorbers.
+
+### The FVU/diversity decoupling
+
+At 50M tokens, layer 9 has the richest feature diversity (39 unique clusters, 25/50 mid-doc) but still the worst reconstruction (FVU 0.099 vs L3's 0.042). This decouples two metrics that are often conflated:
+
+- **FVU** measures how much of the *total* residual stream variance the SAE explains. It is dominated by the high-variance structural features (position 0, early newlines) that the SAE is good at capturing.
+- **Feature diversity** measures how many *distinct* semantic patterns the SAE has specialized latents for.
+
+Layer 9 apparently has more diverse semantic content to represent, requiring more specialized latents (hence few dead latents even at 5M), but also has a larger "long tail" of residual stream variance that's hard to explain — either from directions that require even more tokens to converge, or from aspects of the contextual representation that don't compress well into independent sparse features.
+
+## 8. Next steps
+
+- **50M auto-interp.** Score the 50M dashboards; the key question is whether balanced accuracy rises now that the top-30 is less dominated by structural features.
+- **Cross-scale feature matching.** Identify individual features that appear at both 5M and 50M (confirmed: auto-insurance, GCD, citation hyphens) and compute their cosine similarity in decoder space — a direct measure of training stability.
+- **Layer 9 long-tail analysis.** What explains the residual FVU gap at layer 9? Profile which token positions or document types contribute most to the unrecovered variance.
+- **100M+ run.** Does the L9 FVU gap close with more tokens, or is there a floor? The layer ordering (L3 < L6 < L9 on FVU) is consistent across both scales — testing at 100M would establish whether it's converging.
