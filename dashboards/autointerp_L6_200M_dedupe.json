@@ -1,0 +1,163 @@
+[
+  {
+    "latent": 32243,
+    "description": "This neuron detects line breaks or newlines that separate distinct sections of text, particularly after titles, headers, or concluding statements.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 26961,
+    "description": "This neuron detects the beginning of a word or token, particularly at the start of proper nouns, technical terms, or formatted text blocks.",
+    "balanced_accuracy": 0.625,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 30721,
+    "description": "This neuron detects the beginning of proper nouns, titles, or capitalized words that start new topics, entries, or sections in lists and documents.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 23208,
+    "description": "This neuron detects newline characters that immediately follow capital letters, particularly at the beginning of titles, headings, or proper nouns.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 31748,
+    "description": "Hyphens or dashes used as separators in HTML reference attributes and citation linking syntax.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 636,
+    "description": "This neuron detects words related to assumptions, estimations, or conditional statements in formal or technical contexts, particularly in insurance, legal, or business documentation.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 22180,
+    "description": "This neuron detects hyphens used to connect or separate compound terms, particularly in technical contexts involving paired or contrasting concepts (like upper-lower, phase connections, or coupling parts).",
+    "balanced_accuracy": 0.625,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 32355,
+    "description": "The neuron appears to detect line breaks or section breaks that separate a headline or title from the beginning of the article body or subsequent content.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 24929,
+    "description": "This neuron detects semicolons that terminate initialization statements immediately before for-loop declarations.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 31512,
+    "description": "This neuron detects citations, references, or numerical identifiers in academic/technical text, particularly those appearing in reference lists or inline citations.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 298,
+    "description": "This neuron detects the word \"applicable\" in legal/license text contexts, particularly in Apache License boilerplate and formal documentation describing conditional situations.",
+    "balanced_accuracy": 0.625,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 28056,
+    "description": "This neuron detects the opening angle bracket or brace that begins a code block, markup tag, or data structure (specifically `<` in XML/HTML or `{` in JSON/PHP).",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 30569,
+    "description": "This neuron detects periods that end declarative sentences, particularly in formal or technical writing such as academic abstracts, product descriptions, and informational texts.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 4875,
+    "description": "This neuron detects line breaks or newlines that precede horizontal rule separators (------) or the start of new comment sections in online forum discussions.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 28651,
+    "description": "This neuron detects the prefix \"pre\" when it appears as part of compound words or hyphenated terms, particularly in technical, formal, or descriptive contexts (e.g., \"precompiled,\" \"preplanned,\" \"pre-populated,\" \"preeminent,\" \"precision,\" \"preclean,\" \"prefecture\").",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 18970,
+    "description": "This neuron detects the prefix \"inter-\" when it appears at the beginning of compound words (such as \"interns,\" \"international,\" \"interments,\" \"interoperable,\" \"intermolecular,\" \"interdigitation,\" \"interposed\").",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 21881,
+    "description": "This neuron detects the prefix \"non\" when it appears as part of a hyphenated compound word or technical term, particularly in scientific and academic contexts.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 24685,
+    "description": "This neuron detects the prefix \"hyper-\" (or \"hyp-\") in medical and technical terms, particularly when it forms compound words indicating excess, overactivity, or abnormal increase in a biological or chemical condition.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 22526,
+    "description": "This neuron detects closing HTML/XML tags, specifically the opening bracket of a closing tag (`</`) in template or markup code.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 29471,
+    "description": "This neuron detects the word \"Invention\" when it appears in the standard \"Field of the Invention\" section header of patent documents.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 29030,
+    "description": "This neuron detects hyphens that are part of compound phrases or terms, particularly those involving \"All\" in names of teams, organizations, or descriptive phrases (like \"All-Century,\" \"All-for-Ireland,\" \"All-Time\").",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 823,
+    "description": "The neuron detects lines containing three or more consecutive hyphens, typically appearing at the start of YAML document separators, comment dividers, or file diffs.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 24319,
+    "description": "This neuron detects the opening delimiter of template tags or code blocks, specifically the \"{%\" or \"{\" characters that begin template directives, variable substitutions, or code syntax in various templating languages and programming contexts.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  }
+]

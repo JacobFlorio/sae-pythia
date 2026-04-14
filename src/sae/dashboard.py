@@ -73,6 +73,7 @@ def collect_max_activating(
     context_len: int = 512,
     dataset_name: str = "monology/pile-uncopyrighted",
     device: str = "cuda",
+    dataset=None,
 ) -> None:
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     if tokenizer.pad_token is None:
@@ -95,7 +96,8 @@ def collect_max_activating(
     heaps: list[list] = [[] for _ in range(d_sae)]
     tie = 0
 
-    dataset = load_dataset(dataset_name, split="train", streaming=True)
+    if dataset is None:
+        dataset = load_dataset(dataset_name, split="train", streaming=True)
 
     for doc_id, doc in enumerate(dataset):
         if doc_id >= num_docs:
