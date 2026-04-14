@@ -1,0 +1,205 @@
+[
+  {
+    "latent": 11076,
+    "description": "The neuron detects line breaks or newlines that appear at the end of a section, heading, or statement, often marking a transition to new content.",
+    "balanced_accuracy": 0.625,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 5167,
+    "description": "This neuron detects words related to professional or academic contexts, particularly formal titles, section headers, or terms denoting labor, employment, protection, or scholarly writing.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 611,
+    "description": "This neuron detects periods that mark the end of a complete sentence or major clause, particularly when transitioning to a new topic or providing additional context in the following sentence.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 9175,
+    "description": "This neuron detects programming or structural keywords that introduce namespace declarations, code organization elements, or page/section headers in technical and structured documents.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 15766,
+    "description": "This neuron detects capitalized words that begin titles, headings, names, or serve as the first word of a sentence or section.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 2397,
+    "description": "This neuron detects action verbs or imperative commands that appear at the beginning of titles, headings, or instructional text, often indicating a call to action or topic label.",
+    "balanced_accuracy": 0.375,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 284,
+    "description": "This neuron detects line breaks or paragraph breaks that occur after a heading, title, or introductory statement and before the main body text begins.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 3492,
+    "description": "This neuron detects capitalized words that appear at the beginning of proper nouns, titles, or organizations, particularly compound words where the marked token is the first part (like \"MacEwan,\" \"Work,\" \"Commonwealth,\" \"Manhattan,\" \"Medical,\" \"My\").",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 9215,
+    "description": "This neuron detects line breaks or newlines that occur immediately after a sentence-ending period or at the boundary between distinct content sections.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 5914,
+    "description": "This neuron detects capitalized proper nouns or branded names, particularly at the beginning of titles, section headers, or organizational names.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 7312,
+    "description": "This neuron detects sentence-initial words or tokens that begin new sections, particularly prepositions, verbs, and transition words that introduce a new topic or context.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 3672,
+    "description": "This neuron detects the beginning of proper nouns, titles, commands, or sentence-initial tokens that introduce a topic or directive.",
+    "balanced_accuracy": 0.625,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 14858,
+    "description": "This neuron appears to detect line breaks or paragraph boundaries that immediately follow question titles or headers in technical forum posts or Q&A content.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 6735,
+    "description": "The neuron appears to detect newline characters or line breaks that occur immediately after opening HTML tags or at the beginning of Q&A forum posts/questions.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 7555,
+    "description": "This neuron detects line breaks or paragraph boundaries that occur immediately after the end of a sentence or text block, particularly in digital content like blog posts, articles, and web pages.",
+    "balanced_accuracy": NaN,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 13649,
+    "description": "This neuron detects capitalized words that appear to be titles, headings, or the first word of a new section or article.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 12716,
+    "description": "This neuron detects periods that mark the end of a declarative sentence or statement, particularly in formal or technical writing contexts.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 9729,
+    "description": "This neuron detects enumeration markers (numbers or words) at the beginning of list items, headings, or numbered sections in structured text.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 13715,
+    "description": "This neuron detects periods that mark the end of a title, heading, or topic sentence before transitional or explanatory text begins.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 15224,
+    "description": "This neuron detects the beginning of formal academic or technical document sections, particularly section headers and titles that mark the start of distinct document components (e.g., Introduction, Abstract, Background, Character[ization]).",
+    "balanced_accuracy": 0.625,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 2536,
+    "description": "The token \"Invention\" or \"methods\" appearing as a standardized section heading in formal technical or academic documents, particularly in patent applications and research papers.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 6426,
+    "description": "This neuron detects legal/licensing terminology, particularly words commonly found in software license disclaimers and warranty statements (e.g., \"FITNESS\", \"LIABILITY\", \"MERCHANTABILITY\", \"SUBSTITUTE\", \"WHETHER\").",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 1905,
+    "description": "The neuron appears to detect tokens that mark the beginning of a new section, entry, or citation, particularly capital letters or opening brackets that start titles, references, or list items.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 10235,
+    "description": "This neuron detects the word \"Category\" when it appears at the beginning of Wikipedia-style category tags that classify articles by attributes like birth year, death year, nationality, and occupation.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 5778,
+    "description": "This neuron detects prepositions and determiners that introduce a new context, topic, or location at the beginning of sentences or sections.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 13290,
+    "description": "This neuron detects the word \"How\" when it appears at the beginning of questions or headings, particularly in instructional, explanatory, or inquiry contexts.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 15360,
+    "description": "This neuron detects abbreviated or truncated prefixes of longer words, particularly technical, medical, or proper nouns at the beginning of titles or sentences.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 2274,
+    "description": "This neuron detects capitalized words or abbreviations that are part of standard legal disclaimers or technical terminology, particularly those appearing in software licenses, legal documents, or academic texts.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 7960,
+    "description": "This neuron detects the abbreviation \"CI\" (confidence interval) in statistical reporting contexts, particularly when it appears in parenthetical expressions of statistical ranges.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  }
+]

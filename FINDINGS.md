@@ -113,6 +113,22 @@ Latent 13954 fails because its BOS-cluster firing is generic: it fires on the fi
 
 **High auto-interp score measures predictability, not semantic richness.** The most interesting features found by Jaccard deduplication (GCD problems, auto-insurance boilerplate, patent figure captions) score similarly to structural features but are far more informative as research artifacts.
 
+### Deduplicated auto-interp: honest scores on semantic features only
+
+Re-running auto-interp on the Jaccard-deduplicated top-30 (removing BOS/structural absorbers) yields a more honest measurement:
+
+| Layer | Peak-top-30 mean | Dedupe-top-30 mean | Delta | Failures (<0.65) | Perfect (≥0.90) |
+|---|---|---|---|---|---|
+| Layer 3 | 0.901 | **0.844** | −0.057 | 4 | 8 |
+| Layer 6 | 0.804 | **0.795** | −0.009 | 6 | 4 |
+| Layer 9 | 0.858 | **0.804** | −0.054 | 8 | 5 |
+
+**L3 and L9 drop ~0.05 when structural absorbers are removed.** This quantifies exactly how much BOS-cluster features inflated the earlier means — about 5–6 percentage points, corresponding to the easy 1.00-scoring features that dedup removes.
+
+**L6's near-zero delta (−0.009) confirms the L6 50M features were already the hard ones.** The BOS cluster at layer 6 is smaller (22 features vs 24–25 for L3/L9), so even the peak-top-30 was already dominated by complex phrasal features. The 0.804 score is a real measure of interpretability difficulty.
+
+**Failure rate increases with layer depth.** L3 has 4 failures, L6 has 6, L9 has 8. This matches the lexical→phrasal→conceptual gradient: as features integrate more context, single-sentence descriptions become less predictive. The 8 failures at L9 are the conceptual features (Q&A structure, domain-specific reasoning patterns) that are genuinely hard to capture in one sentence.
+
 ---
 
 ## 5. Semantic features by layer
@@ -237,9 +253,53 @@ At 50M tokens, layer 9 has the richest feature diversity (39 unique clusters, 25
 
 Layer 9 apparently has more diverse semantic content to represent, requiring more specialized latents (hence few dead latents even at 5M), but also has a larger "long tail" of residual stream variance that's hard to explain — either from directions that require even more tokens to converge, or from aspects of the contextual representation that don't compress well into independent sparse features.
 
-## 8. Next steps
+## 8. Cross-scale feature matching: L9 decoder geometry across training scales
 
-- **50M auto-interp — done.** Scores: L3 0.901 (+0.018 vs 5M), L6 0.804 (−0.089), L9 0.858 (−0.030). The L6 drop is the most interpretable result: at 50M tokens the top-30 features are genuinely more complex, making Claude's one-sentence descriptions harder to score against. This is a good sign — the features have more nuance than "fires on first token."
-- **Cross-scale feature matching.** Identify individual features that appear at both 5M and 50M (confirmed: auto-insurance, GCD, citation hyphens) and compute their cosine similarity in decoder space — a direct measure of training stability.
-- **Layer 9 long-tail analysis.** What explains the residual FVU gap at layer 9? Profile which token positions or document types contribute most to the unrecovered variance.
-- **100M+ run.** Does the L9 FVU gap close with more tokens, or is there a floor? The layer ordering (L3 < L6 < L9 on FVU) is consistent across both scales — testing at 100M would establish whether it's converging.
+Using `scripts/match_features.py`, we computed cosine similarity between every pair of decoder directions in the L9 5M and 50M checkpoints. Since `W_dec` rows are unit-normalized, the full similarity matrix is `W_dec_5M @ W_dec_50M.T` — no additional normalization needed. The best-match cosine for each 5M feature tells us how "preserved" it is in the 50M run.
+
+### Distribution of best-match cosines (5M → 50M, L9)
+
+| Threshold | Fraction of features | Count (of 16,384) |
+|---|---|---|
+| cos > 0.9 | 0.8% | **134** |
+| cos > 0.7 | 5.7% | **933** |
+| cos > 0.5 | 16.3% | **2,669** |
+| cos > 0.3 | 23.9% | **3,909** |
+| Mean best-match cosine | — | **0.2595** |
+| Median best-match cosine | — | **0.1547** |
+
+**The phase transition is a genuine reorganization, not a smooth scaling.** If features simply sharpened while maintaining their directions, we would expect most best-match cosines above 0.9. Instead, the median is 0.15 — most 5M features do not have a clear identity in the 50M run. The ~10× increase in unique feature clusters (3→39) is consistent: the feature space restructures substantially, not just refines.
+
+**A small, stable core persists.** 134 features (0.8%) survive with cos > 0.9 — near-identical geometry across scales. 933 features (5.7%) survive with cos > 0.7. These are the features that existed in the 5M run and the 50M run simply refined rather than replaced.
+
+### Top stable features (reciprocal matches, cos > 0.9)
+
+2,749 features have *reciprocal* matches — A→B and B→A both point to each other — at cos > 0.3. The highest-cosine reciprocal pairs are all simple syntactic/lexical features:
+
+| 5M latent | 50M latent | Cosine | Top token | Peak 5M→50M |
+|---|---|---|---|---|
+| 12457 | 2926 | 0.987 | ' overlap' | 12.4 → 12.4 |
+| 10658 | 3253 | 0.987 | ' wake' | 16.2 → 16.8 |
+| 14048 | 3405 | 0.986 | ' also' | 13.6 → 13.6 |
+| 12403 | 15125 | 0.985 | ' sense' | 10.9 → 10.8 |
+| 15387 | 7518 | 0.978 | ' isolated' | 9.1 → 8.1 |
+| 2963 | 12952 | 0.978 | ' adjusting' | 11.1 → 10.9 |
+
+**The most stable features are the simplest ones.** High-cosine reciprocal matches are lexical (specific tokens, function words) — features that exist to reliably fire on a particular token type don't need to reorganize as training extends. Their indices change (they move within the 16k feature space) but their decoder directions are almost identical.
+
+**Conceptual features reorganize.** The GCD and Q&A features known from the dashboards are not in the top reciprocal list, suggesting they either formed anew at 50M (no 5M counterpart) or reorganized substantially. This is consistent with the observation that 0 strict mid-doc features existed at 5M L9 — those features weren't present at 5M and thus have no 5M match.
+
+### Implication for scaling
+
+The 200M-token L6 run (d_sae=32768) currently in progress will be matched against the 50M L6 checkpoint. With 2× the feature space, we expect two possible outcomes: (1) existing features split into more specialized sub-features (splitting pattern, feature indices diverge but decoder angles stay close), or (2) the new features fill in genuinely novel directions (no high-cosine match). Distinguishing these will tell us whether we're in a regime of diminishing returns or still discovering new concepts.
+
+---
+
+## 9. Next steps
+
+- **Dedupe auto-interp — done.** Honest scores: L3 0.844, L6 0.795, L9 0.804. Failure rate increases with layer depth (4→6→8), confirming the conceptual-feature interpretation difficulty gradient.
+- **Cross-scale feature matching (L9) — done.** Median best-match cosine 0.15; 934 features with cos>0.7; stable core is syntactic; conceptual features reorganize during the phase transition.
+- **200M token run, d_sae=32768, L6 — in progress.** First test of doubling the feature space at 4× token budget. Will match against 50M L6 to detect feature splitting vs. novel discovery.
+- **Cross-scale matching for L3 and L6.** Currently blocked: 5M checkpoints were overwritten. Fixed for future runs via `--tag` flag in `train_sae.py`.
+- **Layer 9 long-tail FVU analysis.** Profile which token positions or document types drive the residual variance gap (L9 FVU 0.099 vs L3 0.042). Is it concentrated in a specific document type, or spread uniformly?
+- **100M+ run on all three layers.** Establish whether the FVU layer ordering (L3 < L6 < L9) converges, widens, or inverts again as tokens increase.

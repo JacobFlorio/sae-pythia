@@ -12,6 +12,7 @@ def main():
     p.add_argument("--tokens", type=int, default=50_000_000)
     p.add_argument("--lr", type=float, default=3e-4)
     p.add_argument("--batch-size", type=int, default=4096)
+    p.add_argument("--tag", default="", help="Suffix appended to checkpoint filename, e.g. '50M' or '200M'")
     args = p.parse_args()
 
     train(
@@ -22,6 +23,7 @@ def main():
         total_tokens=args.tokens,
         lr=args.lr,
         batch_size=args.batch_size,
+        tag=args.tag,
     )
 
 

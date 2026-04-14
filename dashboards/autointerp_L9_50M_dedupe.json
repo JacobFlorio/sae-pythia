@@ -1,0 +1,212 @@
+[
+  {
+    "latent": 6419,
+    "description": "This neuron detects the first letter or initial character of a proper noun, company name, location, or title at the beginning of a text segment or document.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 13707,
+    "description": "The neuron detects the beginning of a new line or content section immediately following a line break, often at the start of code blocks, copyright notices, or article text.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 9481,
+    "description": "This neuron detects line breaks or newline characters, particularly when they appear at the beginning of a new line or after markup/code comment symbols.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 7535,
+    "description": "The neuron appears to detect closing XML/HTML tags or the beginning of tag closures, particularly when they appear at the start of a line or after whitespace.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 75,
+    "description": "This neuron detects the word \"divisor\" when it appears in mathematical contexts asking to calculate the greatest/highest common divisor (GCD) of two numbers.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 4780,
+    "description": "This neuron detects decimal points in numerical values and periods in file extensions, as well as newline characters in code snippets.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 8572,
+    "description": "This neuron detects colons that introduce or precede code blocks, quoted text, or explanatory content, particularly in technical documentation and programming contexts.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 11621,
+    "description": "The neuron detects the dash or hyphen character used as a separator in compound terms, file paths, or between related elements in technical documentation.",
+    "balanced_accuracy": 0.625,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 3424,
+    "description": "This neuron detects line breaks or paragraph breaks, particularly those that separate distinct sections of text or introduce new topics.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 9343,
+    "description": "This neuron detects the beginning of XML/HTML closing tags or attribute values, specifically firing on the opening character of multi-character sequences like \">>\" or when a \">\" precedes another structural element.",
+    "balanced_accuracy": 0.625,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 9713,
+    "description": "This neuron detects contractions and auxiliary verbs (particularly \"don't\", \"wasn't\", \"is\") as well as line breaks or transitions in text, often appearing before a clarifying or contrasting statement.",
+    "balanced_accuracy": 0.375,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 592,
+    "description": "This neuron detects newline characters that occur immediately after certain opening or delimiting tokens (such as angle brackets, colons, braces, or \"do\" keywords), typically indicating the start of a new line in structured text like code, HTML, or Q&A formatting.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 10297,
+    "description": "This neuron detects periods that end academic or technical abstracts, typically occurring after the introduction or background section and before the methodology or detailed explanation begins.",
+    "balanced_accuracy": 0.625,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 8797,
+    "description": "This neuron detects period tokens that mark the end of a title, heading, or introductory phrase before transitioning to the main body text or new section.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 15594,
+    "description": "The neuron appears to detect periods (dots) used as package/namespace separators in programming languages (particularly Java) and version numbers, as well as sentence-ending periods in regular text.",
+    "balanced_accuracy": 0.625,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 14078,
+    "description": "The neuron appears to detect line breaks or newline characters that occur at the end of code comments, legal/official document headers, or copyright notices.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 141,
+    "description": "This neuron detects periods that end sentences, particularly in formal or technical writing contexts such as academic papers, patents, news articles, and corporate documents.",
+    "balanced_accuracy": 0.625,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 3574,
+    "description": "This neuron detects periods that mark the end of a sentence or clause, particularly when followed by a new sentence beginning with a capitalized word or proper noun.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 5086,
+    "description": "This neuron detects sentence-ending periods that conclude formal or technical statements, particularly in academic, scientific, or professional contexts.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 11905,
+    "description": "The neuron appears to detect Japanese hiragana characters and particles within Japanese text, particularly in the context of explaining Japanese phrases or grammar structures.",
+    "balanced_accuracy": 0.625,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 11468,
+    "description": "This neuron detects sentence-ending periods that conclude academic or scientific article titles, particularly in medical and biological research contexts.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 13153,
+    "description": "This neuron detects words that complete idiomatic phrases or common expressions, particularly those indicating conclusion, limitation, or conventional usage (e.g., \"works like a charm,\" \"to say the least,\" \"of its day,\" \"limited time only\").",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 13768,
+    "description": "This neuron detects periods that end sentences in academic or scientific text, particularly in titles, abstracts, or introductory sections of research papers.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 940,
+    "description": "This neuron detects periods that mark the end of academic or technical article titles, typically preceding the start of an abstract or article body.",
+    "balanced_accuracy": 0.625,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 2112,
+    "description": "This neuron detects capitalized words at the beginning of titles, headings, or sections, particularly common discourse markers and organizational terms like \"How,\" \"Work,\" \"Why,\" \"Abstract,\" and \"Comparison.\"",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 3253,
+    "description": "This neuron detects abstract nouns denoting non-physical concepts or roles, particularly those related to quantities, positions, categories, or social relationships (such as \"wake,\" \"hands,\" \"request,\" \"dose,\" \"part,\" \"types,\" \"amount,\" \"leadership\").",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 2997,
+    "description": "The neuron detects capitalized words at the beginning of XML/PHP declarations, HTML-like tags, or standalone capitalized words that serve as labels, headings, or category markers.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 15716,
+    "description": "This neuron detects capitalized words or proper nouns that appear at the beginning of titles, headings, or topic labels, often indicating the start of a new section or subject matter.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 14618,
+    "description": "This neuron detects the equals sign \"=\" appearing as an HTML attribute assignment operator within reference link markup, specifically in the \"ref-type=\" attribute of citation hyperlinks.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 3521,
+    "description": "This neuron detects periods that mark the end of technical or scientific paper titles, particularly those that appear before the abstract or introduction section begins.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  }
+]

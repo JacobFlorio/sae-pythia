@@ -22,6 +22,7 @@ def train(
     checkpoint_dir: str = "checkpoints",
     log_every: int = 50,
     device: str = "cuda",
+    tag: str = "",
 ):
     stream = ActivationStream(
         model_name=model_name, layer=layer, device=device, batch_out=batch_size
@@ -61,9 +62,10 @@ def train(
         if seen >= total_tokens:
             break
 
+    suffix = f"_{tag}" if tag else ""
     torch.save(
         {"state_dict": sae.state_dict(), "cfg": cfg.__dict__},
-        ckpt / f"sae_L{layer}_d{d_sae}_k{k}.pt",
+        ckpt / f"sae_L{layer}_d{d_sae}_k{k}{suffix}.pt",
     )
     stream.close()
     pbar.close()

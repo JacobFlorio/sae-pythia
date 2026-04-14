@@ -1,0 +1,212 @@
+[
+  {
+    "latent": 1599,
+    "description": "This neuron detects capitalized tokens at the beginning of proper nouns, particularly names of people, places, organizations, and technical terms.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 7120,
+    "description": "This neuron detects past participle verbs and adjectives that appear in formal or technical contexts, particularly in conditional, descriptive, or comparative statements.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 12269,
+    "description": "This neuron detects hyphens or dashes used as separators in reference citations and hyperlinks, particularly in academic or technical text formatting.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 2326,
+    "description": "This neuron detects line breaks or newlines that separate distinct sections, headlines, or content blocks in formatted text.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 4149,
+    "description": "This neuron detects periods that mark the end of a title, heading, or introductory phrase before the beginning of the main body text or a new section.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 8941,
+    "description": "This neuron detects periods or dots that serve as delimiters in version numbers, file formats, or formal document citations.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 6326,
+    "description": "This neuron detects the end of a heading, title, or label immediately before the start of body text or a new section begins.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 1920,
+    "description": "This neuron detects the decimal point or period character used as a delimiter in version numbers (e.g., \"1.0\") and package/namespace separators in code (e.g., \"org.basex\").",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 2940,
+    "description": "This neuron detects words or tokens that appear in the middle of technical or formal compound terms, particularly in medical, scientific, or programming contexts.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 16042,
+    "description": "This neuron detects fragments of compound words or concatenated terms, particularly in file paths, URLs, or technical naming conventions where a word boundary occurs within a larger identifier.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 4906,
+    "description": "This neuron detects words that represent categories, fields, or domains of activity, particularly when they appear as labels, titles, or section headers.",
+    "balanced_accuracy": 0.5,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 6538,
+    "description": "This neuron detects capitalized words that appear to be titles, headers, names, or the beginning of proper nouns in formatted text such as article titles, section headings, or institutional names.",
+    "balanced_accuracy": 0.625,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 16231,
+    "description": "This neuron detects opening square brackets that mark the beginning of titles, citations, or labeled sections in formatted text.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 10725,
+    "description": "This neuron detects line breaks or paragraph breaks that occur after titles, headings, timestamps, or introductory phrases, typically separating metadata or header information from the main content that follows.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 6874,
+    "description": "This neuron detects words or tokens that appear at the beginning of titles, headings, or proper nouns, particularly when they are the first or initial part of a multi-word name or heading.",
+    "balanced_accuracy": 0.5,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 6367,
+    "description": "This neuron detects capitalized words that introduce or precede a main topic, title, or call-to-action, often appearing at the beginning of sentences or as section headers.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 11155,
+    "description": "The neuron appears to detect punctuation marks and special characters that separate or terminate clauses, sentences, or reference citations in academic and formal text.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 4581,
+    "description": "This neuron detects words that indicate continuation, progression, or transitional phrases at the beginning of titles, sections, or statements in formal or technical contexts.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 4045,
+    "description": "This neuron detects section headers or labels that introduce different types of content, typically appearing at the beginning of documents or segments (such as \"Management\", \"Education\", \"Work\", \"Most\", \"import\", \"Abstract\", \"Local\").",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 7559,
+    "description": "This neuron detects professional or academic domain-related nouns and adjectives, particularly those relating to specialized fields like education, healthcare, workplace contexts, and technical disciplines.",
+    "balanced_accuracy": 0.625,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 14347,
+    "description": "This neuron detects decimal numbers or percentages, particularly in academic or statistical contexts where numerical data is being reported.",
+    "balanced_accuracy": 0.625,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 13184,
+    "description": "This neuron detects words that begin or are part of formal section headings, titles, or categorical labels in structured documents or academic/professional contexts.",
+    "balanced_accuracy": 0.625,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 5579,
+    "description": "This neuron detects capitalized words that appear at the beginning of titles, headers, proper nouns, or emphasized terms, particularly in formal or published content.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 14325,
+    "description": "This neuron detects the first token of a sentence or text segment, particularly pronouns (It, When, My) and capitalized words (Sen-, Ger-, Gen-) that begin new clauses or statements.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 11069,
+    "description": "This neuron appears to detect abbreviated or truncated words at the beginning of a sentence or title, particularly when the token represents the first few characters of a longer word.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 8501,
+    "description": "This neuron appears to detect line breaks or paragraph boundaries, particularly at the start of a new section or continuation of text following a header, title, or introductory phrase.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 15114,
+    "description": "This neuron detects opening square brackets that precede article titles, research paper titles, or section headings in academic or formal text.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 10855,
+    "description": "This neuron detects the beginning of code files, particularly responding to comment markers (#) and quote marks (') that typically appear in the first line of source code (like shebangs, copyright notices, or module declarations).",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 1574,
+    "description": "The token at the start of a possessive pronoun, HTML/XML tag opening bracket, or programming language import statement.",
+    "balanced_accuracy": NaN,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 15750,
+    "description": "This neuron detects periods that mark the end of a title, heading, or abstract in academic/technical text, typically followed by the beginning of the main body text or introduction.",
+    "balanced_accuracy": NaN,
+    "n_positive": 4,
+    "n_negative": 4
+  }
+]
