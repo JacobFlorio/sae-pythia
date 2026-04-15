@@ -1,0 +1,352 @@
+[
+  {
+    "latent": 10381,
+    "description": "This neuron detects line breaks or newlines that occur after a complete semantic unit (like a title, header, name, or copyright notice) and before the start of new content.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 11481,
+    "description": "This neuron detects contracted negative forms of auxiliary verbs (particularly \"doesn't,\" \"couldn't,\" \"weren't,\" \"aren't\") that express negation or inability in statements.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 8470,
+    "description": "This neuron detects periods (dots) used as decimal points in numeric values or as separators in version numbers and file paths.",
+    "balanced_accuracy": 0.625,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 5535,
+    "description": "This neuron detects the beginning of proper nouns, particularly names of places, organizations, and people, as well as the start of specialized or technical terms.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 4595,
+    "description": "This neuron detects whitespace or indentation at the beginning of lines in structured text formats like XML, JSON, or code, particularly when it precedes a closing tag or bracket.",
+    "balanced_accuracy": 0.5,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 12733,
+    "description": "This neuron detects closing angle brackets or tags, particularly in XML/HTML contexts and at the end of code statements or syntax structures.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 4144,
+    "description": "This neuron detects the beginning of proper nouns, abbreviations, or capitalized words that start phrases or sentences, particularly focusing on the first few characters of these capitalized tokens.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 3366,
+    "description": "This neuron appears to detect newline characters or line breaks that occur after titles, headings, or introductory text, often separating a header from subsequent content.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 14151,
+    "description": "The token \"divisor\" appears when it is the key mathematical term in a question asking to calculate the greatest/highest common divisor (GCD) between two numbers.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 2867,
+    "description": "This neuron detects the beginning of words, particularly prefixes or the first few letters of capitalized words at the start of sentences or titles.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 3340,
+    "description": "This neuron detects the first few characters of proper nouns, particularly names of people, places, and organizations, often at the beginning of titles or sentences.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 6672,
+    "description": "The neuron detects capitalized tokens that begin sentences, documents, or major sections, particularly at the start of HTML documents, proper nouns, and content headers.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 15535,
+    "description": "This neuron detects the start of multi-line comment blocks in code or formal documentation, specifically firing on the newline or whitespace immediately after the opening \"/**\" comment delimiter.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 7115,
+    "description": "This neuron detects the first letter \"B\" at the beginning of proper nouns, titles, headings, and standalone words in formatted text structures like links, navigation menus, and section headers.",
+    "balanced_accuracy": NaN,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 1343,
+    "description": "The neuron detects line breaks or newlines that separate a title or header from the beginning of body text or a new section.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 4499,
+    "description": "This neuron detects Japanese or Chinese punctuation marks and grammatical particles, particularly fullwidth punctuation like commas (\u3001), quotation marks (\u300c), parentheses (\uff08), and Japanese particles (\u3063\u3066).",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 3744,
+    "description": "This neuron detects the beginning of tokens that form part of variable names, identifiers, or code elements in programming contexts, particularly when they follow special characters or are part of camelCase naming conventions.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 3819,
+    "description": "This neuron detects the prefix \"mis-\" when it appears at the beginning of words that indicate errors, mistakes, or incorrect actions (such as misconstrued, misguided, misinterpreting, misplace, misinterpret, misperceptions, and misdiagnosis).",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 15864,
+    "description": "This neuron detects the period (dot) that separates package/class names in Java import statements.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 11881,
+    "description": "This neuron detects whitespace or blank lines that serve as vertical spacing/formatting in legal documents, particularly before headers, case titles, or filing information.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 7443,
+    "description": "This neuron detects the word \"AS\" when it appears as part of the standard Apache License boilerplate text \"AS IS\" in software license headers.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 2692,
+    "description": "This neuron detects nouns that indicate collections, quantities, or consequences, particularly in phrases describing groups of things (\"array,\" \"amounts\"), temporal boundaries (\"end,\" \"wake\"), categories (\"types\"), or sequences (\"series,\" \"hands\" in the idiomatic sense).",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 15200,
+    "description": "This neuron detects words that conclude or modify a preceding phrase, often serving as hedging language or completing idiomatic expressions (like \"to say the least,\" \"works like a charm,\" \"if you're so inclined\").",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 4418,
+    "description": "The neuron detects the forward slash character that closes C/C++ `#include` directive path specifications (between angle brackets).",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 7509,
+    "description": "This neuron detects line breaks or paragraph boundaries that occur immediately before the start of a new sentence or text block, particularly in formal or academic writing contexts.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 3829,
+    "description": "This neuron detects the word \"more\" when it appears in formal technical or patent document language transitioning from a general topic to a more specific aspect, typically in the phrase \"and more particularly.\"",
+    "balanced_accuracy": NaN,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 14909,
+    "description": "This neuron detects format specifier characters (like 'd', 's', 'i', '@') that immediately follow the '%' symbol in printf-style format strings.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 10128,
+    "description": "This neuron detects the word \"hard\" when it describes difficult, strenuous, or intensive physical/mental effort, work, or material properties (as in hard beans, hard-hitting, hard data, hard work, hard labor).",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 3529,
+    "description": "The neuron detects the word \"in\" appearing as part of the legal phrase \"except in compliance with\" in software license boilerplate text.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 15825,
+    "description": "This neuron detects citation markers in academic text, specifically the \"pone\" prefix that appears in PLoS ONE journal reference identifiers.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 13713,
+    "description": "This neuron detects the scope resolution operator `::` in C++ code, specifically when it appears after `std` to access standard library components.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 15676,
+    "description": "This neuron detects line breaks or paragraph boundaries that precede the start of new content sections, particularly at the beginning of article body text following headlines or introductory elements.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 469,
+    "description": "This neuron detects the word \"in\" when it appears as part of the common phrase \"Thanks in advance\" at the end of forum posts or questions.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 5752,
+    "description": "This neuron detects the word \"rights\" when it appears in copyright notice statements, specifically in the standard phrase \"All rights reserved.\"",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 11931,
+    "description": "This neuron detects hyphens that connect the prefix \"in-\" to the second part of compound words or phrases, particularly in formal or technical contexts.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 4377,
+    "description": "This neuron detects the prefix \"inter-\" when it appears as part of compound words, particularly in scientific and technical contexts where it indicates relationships or processes occurring between entities (intermolecular, interpulses, interception, interdigitation, interneurones, interdependent, interdigitating).",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 1927,
+    "description": "The neuron detects the exponential operator \"**\" followed by an opening parenthesis and a negative sign, typically indicating the start of a negative exponent in mathematical expressions.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 8662,
+    "description": "This neuron detects Cyrillic word endings and suffixes, particularly genitive case markers and verbal/adjectival inflections in Russian text.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 4547,
+    "description": "This neuron detects the word \"of\" when it appears as part of common idiomatic phrases or expressions, particularly those involving \"out of\" followed by abstract concepts like \"touch,\" \"reach,\" \"proportion,\" \"step,\" or \"consideration.\"",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 13682,
+    "description": "This neuron detects the end of an abstract or conclusion section in academic papers, specifically firing on the period that closes the final sentence before the author attribution section begins.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 4342,
+    "description": "This neuron detects the beginning of words starting with \"Qu\", particularly common words like \"Quiz\", \"Quotes\", \"Quarterback\", \"Quarrel\", \"Queries\", \"Quakers\", \"Quux\", and \"Quirks\".",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 15886,
+    "description": "This neuron detects the prefix \"re\" at the beginning of words, particularly in compound words or words with the \"re-\" prefix (like revision, recreation, reclined, replacing, reaper).",
+    "balanced_accuracy": NaN,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 3972,
+    "description": "This neuron detects the equals sign (=) appearing within HTML attribute syntax, specifically in reference link markup where \"ref-type=\" is being set.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 9956,
+    "description": "The token \"permissions\" appearing in boilerplate Apache/software license text, specifically in the phrase \"governing permissions and\".",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 14088,
+    "description": "The neuron detects the beginning of words that start with \"bl\", particularly common words like \"bloke,\" \"blazing,\" \"blouses,\" \"bluff,\" \"blue,\" \"blurbs,\" and \"bluetooth.\"",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 2596,
+    "description": "This neuron detects the opening parenthesis that immediately follows \"Copyright\" in copyright notice headers, typically preceding the copyright symbol or letter 'c'.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 10511,
+    "description": "This neuron detects the Arabic letter \"\u0646\" (nun) or the Latin letter \"n\" in text, particularly in Arabic transliterations and names.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 4169,
+    "description": "This neuron detects the word \"Unless\" at the beginning of a standard Apache License legal disclaimer clause, typically appearing after the license URL in source code comments.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 5169,
+    "description": "This neuron detects tokens that precede the introduction of statistical significance thresholds or criteria in scientific text, particularly before phrases describing p-values or alpha levels.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 8133,
+    "description": "The token \"Invention\" appears in the standardized \"Field of the Invention\" section header of patent documents.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  }
+]

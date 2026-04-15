@@ -1,0 +1,198 @@
+[
+  {
+    "latent": 6573,
+    "description": "The neuron detects word beginnings or prefixes, particularly the initial few characters of proper nouns, technical terms, and common words at the start of sentences or phrases.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 15860,
+    "description": "This neuron detects the end of comment or code block delimiters, specifically when transitioning from a delimiter marker (like \"/*\", \"/**\", or other formatting symbols) to the beginning of actual content.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 13932,
+    "description": "This neuron detects the first letter or initial character of a word, name, or text token, particularly when it begins a significant proper noun, technical term, or content item.",
+    "balanced_accuracy": 0.625,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 4684,
+    "description": "This neuron detects formal or academic section headers and labels, particularly those that categorize or classify content in professional, scientific, or educational contexts.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 13989,
+    "description": "This neuron detects uppercase keywords that are part of standard software license boilerplate text, particularly those appearing in Apache, MIT, and similar open-source licenses.",
+    "balanced_accuracy": 0.375,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 8311,
+    "description": "This neuron detects the suffix \"-arean\" in medical terminology, particularly in the word \"cesarean\" (also spelled \"caesarean\"), though it also responds to similar word fragments and some legal/technical language patterns.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 15961,
+    "description": "The neuron detects the word \"Invention\" when it appears in the standardized header format \"Field of the Invention\" commonly found in patent documents and technical specifications.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 8755,
+    "description": "This neuron detects specific legal/technical terms commonly found in open-source software license boilerplate text, particularly words that are part of standard disclaimer and warranty clauses.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 15651,
+    "description": "The neuron detects YAML/LaTeX metadata fields in academic documents, specifically bibliography references and keyword sections that follow a specific formatting pattern.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 6052,
+    "description": "This neuron detects the beginning of a text or code file, particularly activating on the initial byte-order mark (BOM) character or leading characters in file headers and formatted documents.",
+    "balanced_accuracy": 0.625,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 3309,
+    "description": "This neuron detects delimiter or separator tokens (like \"~~~\", \"======\", \"<<\", \">>\") that are used to mark boundaries between different sections, comments, or text segments in a document.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 3729,
+    "description": "This neuron detects the use of \"\\cdots\" (a LaTeX command for centered ellipsis dots) in mathematical notation to indicate continuation or omission in sequences or lists.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 13721,
+    "description": "This neuron detects the opening delimiter of XML/HTML declaration tags or PHP opening tags, specifically the \"<?\" or \"<\" character sequence that begins markup language declarations or processing instructions.",
+    "balanced_accuracy": 0.5,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 15585,
+    "description": "This neuron detects the keyword \"pragma\" in preprocessor directives, particularly when it appears at the start of compiler-specific pragma statements used for controlling warnings and diagnostics.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 4961,
+    "description": "This neuron detects capitalized words that appear in legal or formal boilerplate text, particularly terms commonly found in software licenses and liability disclaimers.",
+    "balanced_accuracy": 0.5,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 2817,
+    "description": "This neuron detects the word \"Appeals\" when it appears in the formal name of an appellate court (e.g., \"Court of Appeals\").",
+    "balanced_accuracy": NaN,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 16112,
+    "description": "This neuron detects the opening syntax of Apache mod_rewrite variable references, specifically the `%{` token used to access server variables in RewriteCond directives.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 15148,
+    "description": "This neuron detects the plural noun \"CONDITIONS\" or \"factors\" in formal or technical contexts, particularly in legal boilerplate text (license conditions) and mathematical problems (prime factorization).",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 15272,
+    "description": "This neuron appears to detect page number markers or pagination indicators in legal documents and formal texts, typically denoted by asterisks followed by numbers.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 3751,
+    "description": "This neuron detects the token fragment \"prom\" when it appears as part of words related to advancement, encouragement, or forward movement (like \"promote,\" \"promotion,\" \"proliferation-promoting\"), as well as in the element name \"promethium.\"",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 10005,
+    "description": "This neuron detects the word \"Unless\" (or variations like \"unless\") when it appears at the beginning of conditional clauses that specify exceptions or requirements for preceding statements.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 11431,
+    "description": "This neuron detects the word \"title\" when it appears as a metadata field label in academic papers or formal documents, typically in YAML front matter or bibliographic contexts.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 4239,
+    "description": "This neuron appears to detect the \"External links\" section heading in Wikipedia-style articles and similar reference documents, specifically firing on the word \"links\" when it appears in this standard formatting context.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 9605,
+    "description": "The token \"schemas\" appearing in XML namespace declarations or database schema references, typically in the context of Android XML layouts or SQL queries.",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 9919,
+    "description": "The neuron detects expressions of gratitude at the end of forum posts, questions, or technical discussions, typically appearing before or after a signature or closing statement.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 12137,
+    "description": "This neuron detects the word \"Supreme\" when it appears as part of the formal title of a court, particularly in legal case citations and court documents.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 10004,
+    "description": "This neuron detects words that are part of standard legal or formal language, particularly terms from software licenses and legal documents that describe conditions, requirements, or applicability of rules.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 9047,
+    "description": "This neuron detects the prefix \"hyper-\" in medical and scientific terminology, particularly in compound words describing excessive or abnormal conditions (like hyperchloremic, hyperparathyroidism) or intensified states (hyperactivation, hyperchromatic).",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  }
+]

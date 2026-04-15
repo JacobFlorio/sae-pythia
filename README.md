@@ -6,19 +6,25 @@ From-scratch reimplementation of the top-k SAE architecture from Gao et al. 2024
 
 ## Key findings
 
-| | Layer 3 | Layer 6 | Layer 9 |
-|---|---|---|---|
-| FVU @ 5M tokens | 0.078 | **0.074** | 0.125 |
-| FVU @ 50M tokens | **0.042** | 0.057 | 0.099 |
-| Unique feature clusters @ 5M | 3 | 5 | 3 |
-| Unique feature clusters @ 50M | 27 | 26 | **39** |
-| Auto-interp balanced accuracy @ 50M | 0.901 | 0.804 | 0.858 |
+Seven SAE configs across three layers, two scaling axes, 50M → 400M tokens, 16k → 64k features. Autointerp scored by Claude Sonnet 4.5 as judge.
+
+| Run | Tokens | d_sae | FVU | Mean BA (dedupe) |
+|---|---|---|---|---|
+| L3 50M/16k | 50M | 16,384 | 0.042 | 0.844 |
+| L3 200M/16k | 200M | 16,384 | ≈0.042 | 0.810 |
+| L6 50M/16k | 50M | 16,384 | 0.057 | 0.795 |
+| L6 200M/32k | 200M | 32,768 | 0.043 | 0.864 |
+| **L6 400M/64k** | **400M** | **65,536** | **0.039** | **0.923** |
+| L9 50M/16k | 50M | 16,384 | 0.099 | 0.804 |
+| **L9 200M/16k** | **200M** | **16,384** | **0.090** | **0.928** |
 
 **A phase transition occurs between 5M and 50M tokens.** Dead latents (41% at 5M) collapse to near-zero at 50M, and unique feature clusters jump from 3–5 to 26–39. Layer 9 flips from worst feature diversity to best.
 
-**Features are stable across training scales.** Auto-insurance boilerplate (L6), greatest-common-divisor problems (L9), and biomedical citation markup (L6) all appear at both 5M and 50M tokens with higher activation at the longer run — confirming they are real learned features, not noise.
+**Dict scaling is the biggest interpretability lever.** The L6 progression 50M/16k → 200M/32k → 400M/64k produces a cleanly monotonic autointerp improvement (0.795 → 0.864 → 0.923). Pure token scaling at fixed dict size is layer-dependent — L9 gains +0.124 from 4× more tokens at 16k, while L3 actually *regresses* slightly because its 16k dict was already saturated at 50M.
 
-**The layer 9 FVU/diversity paradox.** Layer 9 has the richest feature set at 50M (39 unique clusters, 25/50 features purely mid-document) but the worst reconstruction (FVU 0.099). Decoder geometry analysis rules out superposition as the cause — the difficulty is intrinsic to the deeper residual stream.
+**Two distinct scaling regimes.** Cross-scale decoder cosine matching shows *feature refinement* (median cos ~0.67–0.73) when dict size is held fixed and only tokens grow, versus *feature reorganization* (median cos ~0.15) when a model is still below its training phase transition. Feature refinement and feature splitting are different phenomena driven by different axes.
+
+**Best config in the sweep**: L9 200M/16k at mean BA 0.928, 0 dead latents — achieved with only a 16k dictionary, the cheapest configuration in the top tier.
 
 Full analysis: [FINDINGS.md](FINDINGS.md)
 

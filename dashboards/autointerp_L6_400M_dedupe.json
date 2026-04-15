@@ -1,0 +1,317 @@
+[
+  {
+    "latent": 18269,
+    "description": "This neuron detects the beginning of a new line or paragraph, particularly after a title, heading, or comment delimiter (/**).",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 38287,
+    "description": "This neuron detects the first token or beginning portion of proper nouns, titles, and document markers, particularly at the start of sentences or documents.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 32036,
+    "description": "This neuron detects proper nouns, particularly names of people and places, often at the beginning of titles, articles, or biographical entries.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 47031,
+    "description": "The neuron detects hyphens that are part of HTML/XML attribute syntax in academic citation references, specifically in the \"ref-type\" attribute.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 11534,
+    "description": "This neuron detects line breaks or paragraph boundaries, particularly those that occur after titles, headers, or introductory text and before the start of new content or body text.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 46773,
+    "description": "This neuron detects the first two or three characters of proper nouns, technical terms, or standardized prefixes in formal or academic contexts.",
+    "balanced_accuracy": 0.5,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 30426,
+    "description": "This neuron detects line breaks or newlines that occur immediately after metadata, headers, timestamps, or version identifiers at the beginning of documents or messages.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 3736,
+    "description": "This neuron detects the first letter \"H\" at the beginning of proper nouns, names, and titles.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 39027,
+    "description": "This neuron detects truncated or abbreviated word tokens at the beginning of proper nouns, technical terms, or sentence-initial words, often appearing in titles, headings, or the start of quoted text.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 39140,
+    "description": "This neuron detects period characters that separate package name components in Java/Kotlin package declarations and similar hierarchical namespace identifiers.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 41870,
+    "description": "This neuron detects technical terminology related to enclosed spaces or systems where processes occur, particularly in engineering contexts (combustion chambers, cache memory) and structural/organizational components (body sections, configuration elements).",
+    "balanced_accuracy": 0.75,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 43875,
+    "description": "This neuron detects the start of a new line or section in formal legal, technical, or official documents, particularly after document identifiers, case numbers, or section headers.",
+    "balanced_accuracy": 0.625,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 6190,
+    "description": "This neuron detects pronouns or words that refer back to previously mentioned subjects or topics in the text, often serving as anaphoric references or the start of clauses that continue a previously established idea.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 5092,
+    "description": "A newline token immediately following the start of a multi-line comment block (/*) in source code or copyright notices.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 14215,
+    "description": "This neuron appears to detect leading whitespace or indentation at the beginning of legal document headers, particularly before court names, case designations, and official filing information.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 54325,
+    "description": "This neuron detects formatting elements in citation references and parenthetical numerical expressions, particularly focusing on opening parentheses and numbers that appear in academic reference formatting or statistical data.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 19263,
+    "description": "Semicolons that terminate variable declarations or statements immediately before a for-loop initialization.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 24132,
+    "description": "This neuron detects the opening delimiter `<?` that begins processing instructions or code blocks in markup and scripting languages (XML declarations and PHP tags).",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 57734,
+    "description": "This neuron detects the byte order mark (BOM) character at the beginning of files, which is an invisible Unicode character (U+FEFF) commonly used to indicate text encoding.",
+    "balanced_accuracy": NaN,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 19485,
+    "description": "This neuron detects word fragments or suffixes, particularly incomplete words that are part of technical, medical, or specialized terminology.",
+    "balanced_accuracy": 0.375,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 5122,
+    "description": "The neuron appears to detect the prefix \"cro\" at the beginning of words, particularly before words like \"crocodile,\" \"crochet,\" \"crop,\" and \"cropped.\"",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 45999,
+    "description": "This neuron detects legal terminology, specifically words related to liability and compensation in software license disclaimers (such as \"DAMAGES\" and \"CLAIM\").",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 10601,
+    "description": "This neuron detects the prefix \"mis-\" when it appears at the beginning of words that indicate error, wrongdoing, or negative deviation from correctness (such as misconstrued, misinterpreting, misguided, misregulation, misplace, misperceptions, and misinterpret).",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 32253,
+    "description": "This neuron detects the word \"civil\" when it appears in formal or institutional contexts, particularly in phrases like \"civil rights,\" \"civil war,\" \"civil servant,\" and \"civil authorities.\"",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 21749,
+    "description": "This neuron detects patent numbers in U.S. Patent citations, specifically firing on the last three digits of the patent number.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 17103,
+    "description": "This neuron detects the string \"equiv\" in HTML meta tag attributes (particularly \"http-equiv\") and in scientific notation for chemical equivalents.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 28338,
+    "description": "This neuron detects the word \"KIND\" in software license boilerplate text, specifically in the phrase \"WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND\" which appears in Apache and similar open-source licenses.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 7033,
+    "description": "This neuron detects the prefix \"hom-\" at the beginning of scientific, medical, or technical terms (such as homogenous, homozygote, homocysteine, homoplastic, homonym, homage).",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 10234,
+    "description": "This neuron detects uppercase letter sequences that are part of abbreviated or truncated words, particularly in technical documentation, legal text, and code comments.",
+    "balanced_accuracy": 0.5,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 14655,
+    "description": "This neuron detects the prefix \"inter-\" when it appears as part of compound words or technical terms indicating \"between\" or \"mutual\" relationships (e.g., intermolecular, interneurons, interference, interlocking).",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 15829,
+    "description": "This neuron detects the beginning of proper nouns and brand names that start with \"Gar\", including personal names (Garry), place names (Garithos), company names (Garmin), and other entities (Garagum, Garay).",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 65371,
+    "description": "The neuron appears to detect the prefix \"bi-\" at the start of scientific, medical, and technical compound words.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 28974,
+    "description": "This neuron detects the token \"cur\" when it appears as a prefix or beginning fragment of various words like \"curation,\" \"courtesy,\" \"curfew,\" \"curvy,\" \"curatively,\" and \"curcumin.\"",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 50976,
+    "description": "This neuron detects the word \"Nobel\" or \"Peace\" when appearing in contexts related to the Nobel Peace Prize, particularly in discussions about Malala Yousafzai's nomination and award.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 55569,
+    "description": "This neuron detects the word \"OF\" when it appears in formal legal document headers between the words \"COURT\" and \"APPEALS\" in titles of judicial courts.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 50519,
+    "description": "This neuron detects the word \"arthroplasty\" or its abbreviated form \"arthro\" in medical contexts, specifically relating to joint replacement surgical procedures.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 13952,
+    "description": "This neuron detects the beginning of Apache mod_rewrite directives, specifically the \"Rewrite\" prefix that starts RewriteCond and RewriteRule statements in .htaccess or Apache configuration files.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 47693,
+    "description": "This neuron detects the prefix \"poly\" (meaning \"many\" or \"multiple\") in medical, scientific, and technical compound words.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 3494,
+    "description": "This neuron detects the prefix \"immun-\" or \"immune-\" in medical and scientific contexts, particularly when it appears as part of compound words related to immunology, immune system functions, or immunological techniques.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 582,
+    "description": "This neuron detects the prefix \"multi\" at the beginning of compound words (like \"multiselect,\" \"multithreading,\" \"multilingual,\" \"multisite,\" \"multibillions,\" \"multivectors,\" \"multiset\").",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 45023,
+    "description": "This neuron detects the substring \"whit\" appearing at the beginning of words, particularly in proper nouns like \"Whitman,\" technical terms like \"whitelist,\" or words related to color like \"white.\"",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 817,
+    "description": "Looking at the pattern across these examples, the neuron appears to detect **a separator line consisting of repeated 'l' characters that appears after a party's name/role designation in a legal document heading**.",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 55076,
+    "description": "This neuron detects the term \"autosomal\" in the context of genetic inheritance patterns, particularly when describing hereditary conditions, chromosomes, or loci in medical and genetics literature.",
+    "balanced_accuracy": 0.875,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 24077,
+    "description": "This neuron detects uppercase tokens that are part of standard legal disclaimer or license text, particularly within software license boilerplate (such as BSD or Apache licenses).",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  },
+  {
+    "latent": 64911,
+    "description": "This neuron detects hyphens that connect \"all\" with a following word to form compound adjectives or nouns (like \"all-clear,\" \"all-inclusive,\" \"all-new,\" \"all-time,\" \"all-important,\" \"all-pervasive\").",
+    "balanced_accuracy": 1.0,
+    "n_positive": 4,
+    "n_negative": 4
+  }
+]

@@ -1,0 +1,117 @@
+{
+  "label_a": "50M_16k",
+  "label_b": "200M_16k",
+  "d_sae_a": 16384,
+  "d_sae_b": 16384,
+  "threshold": 0.3,
+  "distribution": {
+    "frac_cos_gt_09": 0.16973876953125,
+    "frac_cos_gt_07": 0.54510498046875,
+    "frac_cos_gt_05": 0.77734375,
+    "frac_cos_gt_03": 0.9110107421875,
+    "frac_cos_gt_01": 1.0,
+    "mean_best_cos": 0.6777405142784119,
+    "median_best_cos": 0.7293117642402649
+  },
+  "matches": [
+    {
+      "latent_50M_16k": 7960,
+      "latent_200M_16k": 13810,
+      "cosine_similarity": 0.9274,
+      "peak_activation_50M_16k": 11.76,
+      "peak_activation_200M_16k": 10.85,
+      "top_token_50M_16k": " CI",
+      "top_token_200M_16k": " CI",
+      "in_dashboard_200M_16k": true,
+      "reciprocal_match": true
+    },
+    {
+      "latent_50M_16k": 2536,
+      "latent_200M_16k": 15961,
+      "cosine_similarity": 0.9242,
+      "peak_activation_50M_16k": 12.87,
+      "peak_activation_200M_16k": 14.02,
+      "top_token_50M_16k": " Invention",
+      "top_token_200M_16k": " Invention",
+      "in_dashboard_200M_16k": true,
+      "reciprocal_match": true
+    },
+    {
+      "latent_50M_16k": 1773,
+      "latent_200M_16k": 6052,
+      "cosine_similarity": 0.9057,
+      "peak_activation_50M_16k": 13.55,
+      "peak_activation_200M_16k": 12.85,
+      "top_token_50M_16k": "\ufeff",
+      "top_token_200M_16k": "\ufeff",
+      "in_dashboard_200M_16k": true,
+      "reciprocal_match": true
+    },
+    {
+      "latent_50M_16k": 15224,
+      "latent_200M_16k": 12802,
+      "cosine_similarity": 0.8362,
+      "peak_activation_50M_16k": 12.88,
+      "peak_activation_200M_16k": 11.51,
+      "top_token_50M_16k": "Introduction",
+      "top_token_200M_16k": "Introduction",
+      "in_dashboard_200M_16k": true,
+      "reciprocal_match": true
+    },
+    {
+      "latent_50M_16k": 2274,
+      "latent_200M_16k": 2778,
+      "cosine_similarity": 0.8269,
+      "peak_activation_50M_16k": 11.82,
+      "peak_activation_200M_16k": 11.84,
+      "top_token_50M_16k": " POSS",
+      "top_token_200M_16k": " POSS",
+      "in_dashboard_200M_16k": true,
+      "reciprocal_match": true
+    },
+    {
+      "latent_50M_16k": 10235,
+      "latent_200M_16k": 15651,
+      "cosine_similarity": 0.7677,
+      "peak_activation_50M_16k": 12.52,
+      "peak_activation_200M_16k": 13.01,
+      "top_token_50M_16k": "bibliography",
+      "top_token_200M_16k": "bibliography",
+      "in_dashboard_200M_16k": true,
+      "reciprocal_match": true
+    },
+    {
+      "latent_50M_16k": 13290,
+      "latent_200M_16k": 959,
+      "cosine_similarity": 0.7363,
+      "peak_activation_50M_16k": 11.93,
+      "peak_activation_200M_16k": 11.24,
+      "top_token_50M_16k": "How",
+      "top_token_200M_16k": "How",
+      "in_dashboard_200M_16k": true,
+      "reciprocal_match": true
+    },
+    {
+      "latent_50M_16k": 6426,
+      "latent_200M_16k": 5139,
+      "cosine_similarity": 0.3648,
+      "peak_activation_50M_16k": 12.72,
+      "peak_activation_200M_16k": 12.5,
+      "top_token_50M_16k": " FITNESS",
+      "top_token_200M_16k": " FITNESS",
+      "in_dashboard_200M_16k": true,
+      "reciprocal_match": true
+    },
+    {
+      "latent_50M_16k": 5167,
+      "latent_200M_16k": 4684,
+      "cosine_similarity": 0.3171,
+      "peak_activation_50M_16k": 26.83,
+      "peak_activation_200M_16k": 21.98,
+      "top_token_50M_16k": "Work",
+      "top_token_200M_16k": "Work",
+      "in_dashboard_200M_16k": true,
+      "reciprocal_match": true
+    }
+  ]
+}
